@@ -12,7 +12,6 @@ const HomeModel = (props: InputProp) => {
     const getHomeData =async () => {
          let res = await FetchHomeData()
          setData(res)
-         console.log(res)
     }
     useEffect(()=>{
         getHomeData()

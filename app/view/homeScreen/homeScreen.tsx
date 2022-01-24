@@ -20,7 +20,6 @@ const HomeScreen = (props: InputProp)=> {
             extraData={data}
             keyExtractor={(_,index)=>index.toString()}
             renderItem={({item, index}) => {
-                console.log(item.Country)
                 return(
                     <View>
                         <Text>{item.Country}</Text>

@@ -5,7 +5,7 @@ const axios = require('react-native-axios');
 //import {RootObject} from '../controllers/apiResponses/IAuth';
 // import {Asset} from 'react-native-image-picker';
 import {Platform} from 'react-native';
-import { ApiConstant } from '../config';
+import { ApiConstant } from '../config/Constants';
 
 // const token = () => {
 //   const state = store.getState();
