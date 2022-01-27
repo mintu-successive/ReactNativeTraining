@@ -5,6 +5,7 @@ import icons from "./icons";
 import dummyData from "./dummyData"
 import { ApiConstant } from "./ApiConstant";
 import { AsyncConstants } from "./AsyncConstants";
+import { ValidationTypes } from "./ValidationTypes";
 
 export {
     constants,
@@ -16,6 +17,7 @@ export {
     icons,
     dummyData,
     ApiConstant,
-    AsyncConstants
+    AsyncConstants,
+    ValidationTypes
 }
 

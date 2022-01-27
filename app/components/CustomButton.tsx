@@ -17,7 +17,7 @@ const CustomButton = (props: InputProp) => {
             alignItems: 'center',
             justifyContent: 'center'
         }]}
-            onPress={() => click}>
+            onPress={() => click()}>
             <Text style={{
                 fontSize: 16,
                 fontWeight:'800',

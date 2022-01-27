@@ -1,32 +1,56 @@
-import React from "react";
-import { ScrollView, TextInput, Image, KeyboardAvoidingView, Switch, Text, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { ScrollView, TextInput, Image, KeyboardAvoidingView, Switch, Text, TouchableOpacity, View, ColorValue } from "react-native";
 import styles from "./style";
 import { COLORS, constants, images, SIZES } from '../../config/Constants'
-import { CustomButton, DescriptionText, TitleText } from "../../components";
+import { CustomButton, CustomTextInput, DescriptionText, HeaderLogo, TitleText } from "../../components";
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 interface InputProp {
-    navigation: any
+    navigation: any,
+    data: {
+        isSignIn: boolean,
+        buttonText: string,
+        button2Text: string,
+        switchPageDescText: string,
+        isValidEmail: boolean,
+        isValidUserName: boolean,
+        isValidPassword: boolean,
+        emailIcon: {
+            name: string,
+            color: string
+        },
+        userNameIcon: {
+            name: string,
+            color: string
+        },
+        passwordIcon: {
+            name: string,
+            color: string
+        },
+    },
+    switchToSignUp: Function,
+    customButtonClick: Function,
+    onChangeEmailText: (item: string) => void,
+    onChangeUserNameText: (item: string) => void,
+    onChangePasswordText: (item: string) => void,
+    email: string
 }
 
 const LoginScreen = (props: InputProp) => {
-    const { navigation } = props
+    const { navigation, data, switchToSignUp, customButtonClick,
+        onChangeEmailText, onChangePasswordText, onChangeUserNameText, email } = props
     return (
-        // <KeyboardAvoidingView style={{ flex: 1 }}>
-        <ScrollView contentContainerStyle={{ flex:1 }}>
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+            <View style={styles.container}>
 
-            {/* <ScrollView showsVerticalScrollIndicator={false}> */}
-                <Image style={styles.logo}
-                    source={images.logo_02}
-                    resizeMode="contain" />
+                <HeaderLogo style={{}} />
 
-                <View style={{ flex: 1 }}>
+                <View style={{}}>
 
-                    <View style={{ backgroundColor: 'blue' }}>
+                    <View style={{}}>
                         <TitleText
                             style={{
-                                marginTop: 20,
+                                marginTop: 10,
                                 alignSelf: 'center'
                             }}
                             text="Let's Sign You In" />
@@ -37,25 +61,57 @@ const LoginScreen = (props: InputProp) => {
                                 alignSelf: 'center'
                             }} />
 
-                        <Text style={[styles.textInputLabel, { marginTop: 30 }]}>Email</Text>
+                        <View style={styles.labelContainer}>
+                            <Text style={styles.textInputLabel}>Email</Text>
+                            {!data.isValidEmail &&
+                                <Text style={styles.invalidEmail}>Invalid Email</Text>
+                            }
+                        </View>
+
+                        <View style={styles.textInputContainer}>
+                            <CustomTextInput style={{}}
+                                keyboardType={"default"}
+                                email={email}
+                                placeHolder={"Enter email ID"}
+                                onChangeText={(item) => onChangeEmailText(item)} />
+
+                            <Ionicons name={data.emailIcon.name} size={20} color={data.emailIcon.color}
+                                style={{ position: 'absolute', end: 10 }} />
+                        </View>
+
+                        {!data.isSignIn &&
+                            <View>
+                                <View style={styles.labelContainer}>
+                                    <Text style={styles.textInputLabel}>Username</Text>
+                                    {!data.isValidUserName &&
+                                        <Text style={styles.invalidEmail}>Invalid Username</Text>
+                                    }
+                                </View>
+
+                                <View style={styles.textInputContainer}>
+                                    <CustomTextInput style={{}}
+                                        keyboardType={"default"}
+                                        onChangeText={(item) => onChangeUserNameText(item)} />
+
+                                    <Ionicons name={data.userNameIcon.name} size={20} color={data.userNameIcon.color}
+                                        style={{ position: 'absolute', end: 10 }} />
+                                </View>
+                            </View>
+                        }
+
+                        <View style={styles.labelContainer}>
+                            <Text style={[styles.textInputLabel, { marginTop: 10 }]}>Password</Text>
+                            {!data.isValidPassword &&
+                                <Text style={styles.invalidEmail}>Password must be 9 characters</Text>
+                            }
+                        </View>
 
                         <View style={styles.textInputContainer}>
                             <TextInput style={styles.textInput}
                                 secureTextEntry
-                                keyboardType="email-address" />
+                                onChangeText={(item) => onChangePasswordText(item)} />
 
-                            <Ionicons name="checkmark-circle-outline" size={20} color={COLORS.gray}
-                                style={{ position: 'absolute', end: 10 }} />
-                        </View>
-
-                        <Text style={[styles.textInputLabel, { marginTop: 10 }]}>Password</Text>
-
-
-                        <View style={styles.textInputContainer}>
-                            <TextInput style={styles.textInput}
-                                secureTextEntry />
-
-                            <Ionicons name="eye" size={20} color={COLORS.gray}
+                            <Ionicons name={data.passwordIcon.name} size={20} color={data.passwordIcon.color}
                                 style={{ position: 'absolute', end: 10 }} />
                         </View>
 
@@ -82,23 +138,23 @@ const LoginScreen = (props: InputProp) => {
                             </TouchableOpacity>
                         </View>
 
-                        <CustomButton text="Sign In"
-                            click={() => { }}
+                        <CustomButton text={data.buttonText}
+                            click={() => customButtonClick()}
                             style={{
-                                marginTop: 20
+                                marginTop: 10
                             }} />
 
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => switchToSignUp()}>
                             <View style={styles.dontHaveAccountContainer}>
-                                <DescriptionText text="Don't have an account?"
+                                <DescriptionText text={data.switchPageDescText}
                                     style={{ alignSelf: 'center' }} />
-                                <Text style={styles.signUpText}>Sign Up</Text>
+                                <Text style={styles.signUpText}>{data.button2Text}</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                 </View>
 
-                <View style={{ flex: 1, justifyContent: 'flex-end', backgroundColor: 'green' }}>
+                <View style={{ flex: 1, justifyContent: 'flex-end' }}>
                     <TouchableOpacity style={styles.facebookButtonContainer}
                         onPress={() => { }}>
                         <View style={{ flexDirection: 'row' }}>
@@ -117,12 +173,8 @@ const LoginScreen = (props: InputProp) => {
                         </View>
                     </TouchableOpacity>
                 </View>
-
-            {/* </ScrollView> */}
-
-        </View>
+            </View>
         </ScrollView>
-        // </KeyboardAvoidingView>
     )
 }
 

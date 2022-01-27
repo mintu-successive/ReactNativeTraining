@@ -5,12 +5,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 20,
-        backgroundColor:'red'
+        // backgroundColor:'red'
     },
     logo: {
-        width: 200,
-        height: 80,
-        marginTop: 40,
+        width: SIZES.width,
+        height: '10%',
+        marginTop: 5,
         alignSelf: 'center'
     },
     textInputLabel: {
@@ -56,6 +56,16 @@ const styles = StyleSheet.create({
         color: COLORS.primary,
         fontWeight: '800'
     },
+    labelContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 10
+    },
+    invalidEmail: {
+        position: "absolute",
+        color: COLORS.red,
+        end: 0
+    },
     textInputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -82,7 +92,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'flex-end',
-        width: '100%'
+        width: '100%',
+        marginVertical: 10
     },
     googleButtonText: {
         fontSize: 16,
