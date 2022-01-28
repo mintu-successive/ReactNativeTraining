@@ -4,6 +4,8 @@ import CustomButton from "./CustomButton";
 import HeaderLogo from "./HeaderLogo";
 import CustomTextInput from "./CustomInputText";
 import LabelText from "./LabelText";
+import Header from "./Header";
+import SearchBar from "./SearchBar";
 
 export {
     TitleText,
@@ -11,5 +13,7 @@ export {
     CustomButton,
     HeaderLogo,
     CustomTextInput,
-    LabelText
+    LabelText,
+    Header,
+    SearchBar
 }

@@ -20,7 +20,7 @@ const Stack = createStackNavigator<RootStackList>()
 const StackNavigator = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Otp">
+            <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Otp" component={OtpModel}
                     options={{
                         headerShown: false
@@ -39,6 +39,7 @@ const StackNavigator = () => {
                     }} />
                 <Stack.Screen name="Home" component={HomeModel}
                     options={{
+                        headerShown: false,
                         headerLeft: () => null,
                     }} />
                 <Stack.Screen name="Profile" component={ProfileModel} />
