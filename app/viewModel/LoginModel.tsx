@@ -7,68 +7,48 @@ import LoginScreen from '../view/LoginScreen'
 
 interface InputProp {
     navigation: any
-    data: {
-        isSignIn: boolean,
-        buttonText: string,
-        button2Text: string,
-        switchPageDescText: string,
-        isValidEmail: boolean,
-        isValidUserName: boolean,
-        isValidPassword: boolean,
-        emailIcon: {
-            name: string,
-            color: string
-        },
-        userNameIcon: {
-            name: string,
-            color: string
-        },
-        passwordIcon: {
-            name: string,
-            color: string
-        },
-    },
     switchToSignUp: Function
     customButtonClick: Function
 }
 
 const LoginModel = (props: InputProp) => {
+    const CHECK_ICON = "checkmark-circle-outline"
+    const CLOSE_ICON = "close-circle-outline"
     const { navigation } = props
     const [isSignIn, setIsSignIn] = useState(true)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUserName] = useState('')
-    const [data, setData] = useState({
-        emailIcon: { name: 'checkmark-circle-outline', color: COLORS.gray },
-        userNameIcon: { name: 'checkmark-circle-outline', color: COLORS.gray },
-        passwordIcon: { name: 'eye', color: COLORS.gray },
-        isSignIn: isSignIn,
-        buttonText: isSignIn ? "Sign In" : "Sign Up",
-        button2Text: !isSignIn ? "Sign In" : "Sign Up",
-        switchPageDescText: isSignIn ? "Don't have an account?" :
-            "Already have an account?",
-        isValidEmail: true,
-        isValidUserName: true,
-        isValidPassword: true,
-    })
+    const [isValidEmail, setIsValidEmail] = useState(true)
+    const [isValidUserName, setIsValidUserName] = useState(true)
+    const [isValidPassword, setIsValidPassword] = useState(true)
+    const [emailIconName, setEmailIconName] = useState("checkmark-circle-outline")
+    const [emailIconColor, setEmailIconColor] = useState(COLORS.gray)
+    const [userNameIconName, setUserNameIconName] = useState("checkmark-circle-outline")
+    const [userNameIconColor, setUserNameIconColor] = useState(COLORS.gray)
+    const [passwordIconName, setPasswordIconName] = useState("eye")
+    const [passwordIconColor, setPasswordIconColor] = useState(COLORS.gray)
+    const [submitButtonText, setSubmitButtonText] = useState(isSignIn ? "Sign In" : "Sign Up")
+    const [switchButtonText, setSwitchButtonText] = useState(isSignIn ? "Sign Up" : "Sign In")
+    const [switchText, setSwitchText] = useState(isSignIn ? "Don't have an account?" :
+        "Already have an account?")
 
     useEffect(() => {
-        setData({
-            ...data,
-            isSignIn: isSignIn,
-            buttonText: isSignIn ? "Sign In" : "Sign Up",
-            button2Text: !isSignIn ? "Sign In" : "Sign Up",
-            switchPageDescText: isSignIn ? "Don't have an account?" :
-                "Already have an account?",
-            isValidEmail: true
-        })
-    }, [isSignIn, email])
+        setEmail("")
+        setUserName("")
+        setPassword("")
+        setIsValidEmail(true)
+        setIsValidPassword(true)
+        setIsValidUserName(true)
+        setSubmitButtonText(isSignIn ? "Sign In" : "Sign Up")
+        setSwitchButtonText(isSignIn ? "Sign Up" : "Sign In")
+        setEmailIconName("checkmark-circle-outline")
+        setEmailIconColor(COLORS.gray)
+    }, [isSignIn])
 
-    // const emailRef = useRef(TextInput).current
 
     const switchToSignUp = (isSignIn: boolean) => {
         setIsSignIn(!isSignIn)
-        setEmail("")
     }
 
     const customButtonClick = () => {
@@ -81,139 +61,89 @@ const LoginModel = (props: InputProp) => {
 
     const login = async () => {
         let isValidEmail = await validateEmail(email)
-        if (!isValidEmail) {
-            setData({
-                ...data,
-                emailIcon: { name: 'close-circle-outline', color: COLORS.red },
-                isValidEmail: false
-            })
-            return
+        if (isValidEmail) {
+            setIsValidEmail(true)
+            setEmailIconColor(COLORS.green)
+            setEmailIconName(CHECK_ICON)
+
+            if (password.length < 9) {
+                setIsValidPassword(false)
+            } else {
+                setIsValidPassword(true)
+                setTimeout(() => {
+                    navigation.navigate("Home")
+                }, 500);
+            }
         } else {
-            setData({
-                ...data,
-                emailIcon: { name: 'checkmark-circle-outline', color: COLORS.green },
-                isValidEmail: true
-            })
-
-            setTimeout(() => {
-                if (password.length < 9) {
-                    setData({
-                        ...data,
-                        isValidPassword: false
-                    })
-                    return
-                } else {
-                    setData({
-                        ...data,
-                        isValidPassword: true
-                    })
-                }
-
-                Alert.alert("SIGNING IN...", `${email + " " + password}`)
-            }, 100);
+            setIsValidEmail(false)
+            setEmailIconColor(COLORS.red)
+            setEmailIconName(CLOSE_ICON)
+            setIsValidPassword(true)
         }
     }
 
     const signUp = async () => {
-        try {
-            let isValidEmail = await validateEmail(email)
-            let validUserName = await validateUserName(username)
+        let isValidEmail = await validateEmail(email)
+        let isValidUserName = await validateUserName(username)
 
+        if (isValidEmail) {
+            setIsValidEmail(true)
+            setEmailIconName(CHECK_ICON)
+            setEmailIconColor(COLORS.green)
 
-            console.log(isValidEmail, validUserName)
-            if (isValidEmail) {
-                setData({
-                    ...data,
-                    emailIcon: { name: 'checkmark-circle-outline', color: "green" },
-                    isValidEmail: true
-                })
+            if (isValidUserName) {
+                setIsValidUserName(true)
+                setUserNameIconName(CHECK_ICON)
+                setUserNameIconColor(COLORS.green)
+
+                if (password.length < 9) {
+                    setIsValidPassword(false)
+                } else {
+                    setIsValidPassword(true)
+                    setTimeout(() => {
+                        switchToSignUp(isSignIn)
+                    }, 500);
+                }
             } else {
-                Alert.alert("invalid email")
-                setData({
-                    ...data,
-                    emailIcon: { name: 'close-circle-outline', color: COLORS.red },
-                    isValidEmail: false
-                })
+                setIsValidUserName(false)
+                setUserNameIconName(CLOSE_ICON)
+                setUserNameIconColor(COLORS.red)
+                setIsValidPassword(true)
             }
-
-            if (validUserName && isValidEmail) {
-                setData({
-                    ...data,
-                    userNameIcon: { name: 'checkmark-circle-outline', color: COLORS.green },
-                    isValidUserName: true
-                })
-            } else {
-                Alert.alert("invalid username")
-                setData({
-                    ...data,
-                    userNameIcon: { name: 'close-circle-outline', color: COLORS.red },
-                    isValidUserName: false
-                })
-            }
-
-
-            // if (!isValidEmail) {
-            //     setData({
-            //         ...data,
-            //         emailIcon: { name: 'close-circle-outline', color: COLORS.red },
-            //         isValidEmail: false
-            //     })
-            //     return
-            // } else {
-            //     setData({
-            //         ...data,
-            //         emailIcon: { name: 'checkmark-circle-outline', color: COLORS.green },
-            //         isValidEmail: true
-            //     })
-
-            // setTimeout(() => {
-
-            //     if (!validUserName) {
-            //         setData({
-            //             ...data,
-            //             userNameIcon: { name: 'close-circle-outline', color: COLORS.red },
-            //             isValidUserName: false
-            //         })
-            //         return
-            //     } else {
-            //         setData({
-            //             ...data,
-            //             userNameIcon: { name: 'checkmark-circle-outline', color: COLORS.green },
-            //             isValidUserName: true
-            //         })
-            //         setTimeout(() => {
-            //             if (password.length < 9) {
-            //                 setData({
-            //                     ...data,
-            //                     isValidPassword: false
-            //                 })
-            //                 return
-            //             } else {
-            //                 setData({
-            //                     ...data,
-            //                     isValidPassword: true
-            //                 })
-            //             }
-
-            //             switchToSignUp(isSignIn)
-
-            //         }, 200);
-            //     }
-            // }, 200);
-            // }
-        } catch (error) {
-            console.error(error)
+        } else {
+            setIsValidEmail(false)
+            setEmailIconName(CLOSE_ICON)
+            setEmailIconColor(COLORS.red)
+            setIsValidPassword(true)
+            setIsValidUserName(true)
         }
     }
 
     return (
-        <LoginScreen navigation={navigation} data={data}
+        <LoginScreen
+            navigation={navigation}
             email={email}
+            username={username}
+            password={password}
+            isSignIn={isSignIn}
+            isValidEmail={isValidEmail}
+            isValidUserName={isValidUserName}
+            isValidPassword={isValidPassword}
+            emailIconName={emailIconName}
+            emailIconColor={emailIconColor}
+            userNameIconName={userNameIconName}
+            userNameIconColor={userNameIconColor}
+            passwordIconName={passwordIconName}
+            passwordIconColor={passwordIconColor}
+            submitButtonText={submitButtonText}
+            switchButtonText={switchButtonText}
+            switchText={switchText}
             switchToSignUp={() => switchToSignUp(isSignIn)}
             customButtonClick={() => customButtonClick()}
             onChangeEmailText={(item: string) => setEmail(item)}
             onChangeUserNameText={(item: string) => setUserName(item)}
-            onChangePasswordText={(item: string) => setPassword(item)} />
+            onChangePasswordText={(item: string) => setPassword(item)}
+        />
     )
 }
 

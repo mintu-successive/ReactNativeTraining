@@ -5,13 +5,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 20,
-        // backgroundColor:'red'
-    },
-    logo: {
-        width: SIZES.width,
-        height: '10%',
-        marginTop: 5,
-        alignSelf: 'center'
     },
     textInputLabel: {
         color: COLORS.gray

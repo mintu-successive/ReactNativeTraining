@@ -7,38 +7,54 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 interface InputProp {
     navigation: any,
-    data: {
-        isSignIn: boolean,
-        buttonText: string,
-        button2Text: string,
-        switchPageDescText: string,
-        isValidEmail: boolean,
-        isValidUserName: boolean,
-        isValidPassword: boolean,
-        emailIcon: {
-            name: string,
-            color: string
-        },
-        userNameIcon: {
-            name: string,
-            color: string
-        },
-        passwordIcon: {
-            name: string,
-            color: string
-        },
-    },
     switchToSignUp: Function,
     customButtonClick: Function,
+    email: string,
+    password: string,
+    username: string,
+    isSignIn: boolean,
+    isValidEmail: boolean,
+    isValidUserName: boolean,
+    isValidPassword: boolean,
+    emailIconName: string,
+    emailIconColor: string,
+    userNameIconName: string,
+    userNameIconColor: string,
+    passwordIconName: string,
+    passwordIconColor: string,
+    submitButtonText: string,
+    switchButtonText: string,
+    switchText: string,
     onChangeEmailText: (item: string) => void,
     onChangeUserNameText: (item: string) => void,
     onChangePasswordText: (item: string) => void,
-    email: string
 }
 
 const LoginScreen = (props: InputProp) => {
-    const { navigation, data, switchToSignUp, customButtonClick,
-        onChangeEmailText, onChangePasswordText, onChangeUserNameText, email } = props
+    const {
+        navigation,
+        switchToSignUp,
+        customButtonClick,
+        onChangeEmailText,
+        onChangePasswordText,
+        onChangeUserNameText,
+        email,
+        password,
+        username,
+        isSignIn,
+        isValidEmail,
+        isValidUserName,
+        isValidPassword,
+        emailIconName,
+        emailIconColor,
+        userNameIconName,
+        userNameIconColor,
+        passwordIconName,
+        passwordIconColor,
+        submitButtonText,
+        switchButtonText,
+        switchText
+    } = props
     return (
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
             <View style={styles.container}>
@@ -63,45 +79,41 @@ const LoginScreen = (props: InputProp) => {
 
                         <View style={styles.labelContainer}>
                             <Text style={styles.textInputLabel}>Email</Text>
-                            {!data.isValidEmail &&
+                            {!isValidEmail &&
                                 <Text style={styles.invalidEmail}>Invalid Email</Text>
                             }
                         </View>
 
-                        <View style={styles.textInputContainer}>
-                            <CustomTextInput style={{}}
-                                keyboardType={"default"}
-                                email={email}
-                                placeHolder={"Enter email ID"}
-                                onChangeText={(item) => onChangeEmailText(item)} />
+                        <CustomTextInput style={{ marginTop: 10 }}
+                            keyboardType={"default"}
+                            value={email}
+                            onChangeText={(text: string) => onChangeEmailText(text)}
+                            iconName={emailIconName}
+                            iconColor={emailIconColor}
+                        />
 
-                            <Ionicons name={data.emailIcon.name} size={20} color={data.emailIcon.color}
-                                style={{ position: 'absolute', end: 10 }} />
-                        </View>
-
-                        {!data.isSignIn &&
+                        {!isSignIn &&
                             <View>
                                 <View style={styles.labelContainer}>
                                     <Text style={styles.textInputLabel}>Username</Text>
-                                    {!data.isValidUserName &&
+                                    {!isValidUserName &&
                                         <Text style={styles.invalidEmail}>Invalid Username</Text>
                                     }
                                 </View>
 
-                                <View style={styles.textInputContainer}>
-                                    <CustomTextInput style={{}}
-                                        keyboardType={"default"}
-                                        onChangeText={(item) => onChangeUserNameText(item)} />
-
-                                    <Ionicons name={data.userNameIcon.name} size={20} color={data.userNameIcon.color}
-                                        style={{ position: 'absolute', end: 10 }} />
-                                </View>
+                                <CustomTextInput style={{ marginTop: 10 }}
+                                    keyboardType={"default"}
+                                    value={username}
+                                    onChangeText={(text: string) => onChangeUserNameText(text)}
+                                    iconName={userNameIconName}
+                                    iconColor={userNameIconColor}
+                                />
                             </View>
                         }
 
                         <View style={styles.labelContainer}>
                             <Text style={[styles.textInputLabel, { marginTop: 10 }]}>Password</Text>
-                            {!data.isValidPassword &&
+                            {!isValidPassword &&
                                 <Text style={styles.invalidEmail}>Password must be 9 characters</Text>
                             }
                         </View>
@@ -109,9 +121,10 @@ const LoginScreen = (props: InputProp) => {
                         <View style={styles.textInputContainer}>
                             <TextInput style={styles.textInput}
                                 secureTextEntry
+                                value={password}
                                 onChangeText={(item) => onChangePasswordText(item)} />
 
-                            <Ionicons name={data.passwordIcon.name} size={20} color={data.passwordIcon.color}
+                            <Ionicons name={passwordIconName} size={20} color={passwordIconColor}
                                 style={{ position: 'absolute', end: 10 }} />
                         </View>
 
@@ -138,7 +151,7 @@ const LoginScreen = (props: InputProp) => {
                             </TouchableOpacity>
                         </View>
 
-                        <CustomButton text={data.buttonText}
+                        <CustomButton text={submitButtonText}
                             click={() => customButtonClick()}
                             style={{
                                 marginTop: 10
@@ -146,9 +159,9 @@ const LoginScreen = (props: InputProp) => {
 
                         <TouchableOpacity onPress={() => switchToSignUp()}>
                             <View style={styles.dontHaveAccountContainer}>
-                                <DescriptionText text={data.switchPageDescText}
+                                <DescriptionText text={switchText}
                                     style={{ alignSelf: 'center' }} />
-                                <Text style={styles.signUpText}>{data.button2Text}</Text>
+                                <Text style={styles.signUpText}>{switchButtonText}</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
