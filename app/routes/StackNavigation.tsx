@@ -4,13 +4,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import { HomeModel, ProfileModel, OnBoardingModel } from "../viewModel";
 import LoginModel from "../viewModel/LoginModel";
 import PasswordRecoveryModel from "../viewModel/PasswordRecoveryModel";
+import OtpModel from "../viewModel/OtpModel";
 
 type RootStackList = {
     OnBoarding: undefined,
     Home: undefined,
     Profile: undefined,
     Login: undefined,
-    PasswordRecovery: undefined
+    PasswordRecovery: undefined,
+    Otp: undefined
 }
 
 const Stack = createStackNavigator<RootStackList>()
@@ -18,7 +20,11 @@ const Stack = createStackNavigator<RootStackList>()
 const StackNavigator = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="PasswordRecovery">
+            <Stack.Navigator initialRouteName="Otp">
+                <Stack.Screen name="Otp" component={OtpModel}
+                    options={{
+                        headerShown: false
+                    }} />
                 <Stack.Screen name="PasswordRecovery" component={PasswordRecoveryModel}
                     options={{
                         headerShown: false
