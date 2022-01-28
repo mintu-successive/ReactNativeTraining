@@ -158,6 +158,9 @@ const track_order_status = [
 
 const GOOGLE_MAP_API_KEY = ""
 
+const CHECK_ICON = "checkmark-circle-outline"
+const CLOSE_ICON = "close-circle-outline"
+
 export default {
     onboarding_screens,
     screens,
@@ -167,4 +170,6 @@ export default {
     tags,
     track_order_status,
     GOOGLE_MAP_API_KEY,
+    CHECK_ICON,
+    CLOSE_ICON
 }

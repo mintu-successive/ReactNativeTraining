@@ -2,13 +2,8 @@ import React from "react";
 import { Text } from "react-native";
 import { COLORS, SIZES } from "../config/Constants";
 
-interface InputProp {
-    text: string
-    style: any
-}
 
-const TitleText = (props: InputProp) => {
-    const { text, style } = props
+const TitleText = ({ text, style }: any) => {
     return (
         <Text style={[style, {
             fontSize: SIZES.h2,

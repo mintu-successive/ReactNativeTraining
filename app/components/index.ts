@@ -3,5 +3,13 @@ import DescriptionText from "./DescriptionText";
 import CustomButton from "./CustomButton";
 import HeaderLogo from "./HeaderLogo";
 import CustomTextInput from "./CustomInputText";
+import LabelText from "./LabelText";
 
-export { TitleText, DescriptionText, CustomButton, HeaderLogo, CustomTextInput }
+export {
+    TitleText,
+    DescriptionText,
+    CustomButton,
+    HeaderLogo,
+    CustomTextInput,
+    LabelText
+}

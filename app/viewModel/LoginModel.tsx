@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Alert, ColorValue } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
 import { COLORS, ValidationTypes } from "../config/Constants";
 import { validateEmail, validateUserName } from "../config/Validation";
 import LoginScreen from '../view/LoginScreen'
+import {constants} from '../config/Constants'
 
 interface InputProp {
     navigation: any
@@ -12,8 +11,6 @@ interface InputProp {
 }
 
 const LoginModel = (props: InputProp) => {
-    const CHECK_ICON = "checkmark-circle-outline"
-    const CLOSE_ICON = "close-circle-outline"
     const { navigation } = props
     const [isSignIn, setIsSignIn] = useState(true)
     const [email, setEmail] = useState('')
@@ -64,7 +61,7 @@ const LoginModel = (props: InputProp) => {
         if (isValidEmail) {
             setIsValidEmail(true)
             setEmailIconColor(COLORS.green)
-            setEmailIconName(CHECK_ICON)
+            setEmailIconName(constants.CHECK_ICON)
 
             if (password.length < 9) {
                 setIsValidPassword(false)
@@ -77,7 +74,7 @@ const LoginModel = (props: InputProp) => {
         } else {
             setIsValidEmail(false)
             setEmailIconColor(COLORS.red)
-            setEmailIconName(CLOSE_ICON)
+            setEmailIconName(constants.CLOSE_ICON)
             setIsValidPassword(true)
         }
     }
@@ -88,12 +85,12 @@ const LoginModel = (props: InputProp) => {
 
         if (isValidEmail) {
             setIsValidEmail(true)
-            setEmailIconName(CHECK_ICON)
+            setEmailIconName(constants.CHECK_ICON)
             setEmailIconColor(COLORS.green)
 
             if (isValidUserName) {
                 setIsValidUserName(true)
-                setUserNameIconName(CHECK_ICON)
+                setUserNameIconName(constants.CHECK_ICON)
                 setUserNameIconColor(COLORS.green)
 
                 if (password.length < 9) {
@@ -106,13 +103,13 @@ const LoginModel = (props: InputProp) => {
                 }
             } else {
                 setIsValidUserName(false)
-                setUserNameIconName(CLOSE_ICON)
+                setUserNameIconName(constants.CLOSE_ICON)
                 setUserNameIconColor(COLORS.red)
                 setIsValidPassword(true)
             }
         } else {
             setIsValidEmail(false)
-            setEmailIconName(CLOSE_ICON)
+            setEmailIconName(constants.CLOSE_ICON)
             setEmailIconColor(COLORS.red)
             setIsValidPassword(true)
             setIsValidUserName(true)

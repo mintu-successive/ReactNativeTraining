@@ -2,12 +2,7 @@ import React from "react";
 import { Image } from "react-native";
 import { images, SIZES } from "../config/Constants";
 
-interface InputProp {
-    style: any,
-}
-
-const HeaderLogo = (props: InputProp) => {
-    const { style } = props
+const HeaderLogo = ({style}: any) => {
     return (
         <Image style={[style, {
             width: SIZES.width,
