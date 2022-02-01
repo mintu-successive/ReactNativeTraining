@@ -7,39 +7,29 @@ import PasswordRecoveryModel from "../viewModel/PasswordRecoveryModel";
 import OtpModel from "../viewModel/OtpModel";
 
 type RootStackList = {
-    OnBoarding: undefined,
-    Home: undefined,
-    Profile: undefined,
-    Login: undefined,
-    PasswordRecovery: undefined,
-    Otp: undefined
+    OnBoarding: Function,
+    Home: Function,
+    Profile: Function,
+    Login: Function,
+    PasswordRecovery: Function,
+    Otp: Function
 }
 
 const Stack = createStackNavigator<RootStackList>()
 
 const StackNavigator = () => {
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name="Otp" component={OtpModel}
-                    options={{
-                        headerShown: false
-                    }} />
-                <Stack.Screen name="PasswordRecovery" component={PasswordRecoveryModel}
-                    options={{
-                        headerShown: false
-                    }} />
-                <Stack.Screen name="Login" component={LoginModel}
-                    options={{
-                        headerShown: false
-                    }} />
-                <Stack.Screen name="OnBoarding" component={OnBoardingModel}
-                    options={{
-                        headerShown: false
-                    }} />
+        <NavigationContainer >
+            <Stack.Navigator initialRouteName="Home"
+                screenOptions={{
+                    headerShown: false
+                }}>
+                <Stack.Screen name="Otp" component={OtpModel}/>
+                <Stack.Screen name="PasswordRecovery" component={PasswordRecoveryModel} />
+                <Stack.Screen name="Login" component={LoginModel}/>
+                <Stack.Screen name="OnBoarding" component={OnBoardingModel}/>
                 <Stack.Screen name="Home" component={HomeModel}
                     options={{
-                        headerShown: false,
                         headerLeft: () => null,
                     }} />
                 <Stack.Screen name="Profile" component={ProfileModel} />

@@ -22,6 +22,21 @@ const categories = [
     }
 ]
 
+const deliveryTimes = [
+    {
+        id:1,
+        time:10
+    },
+    {
+        id:2,
+        time:20
+    },
+    {
+        id:3,
+        time:30
+    }
+]
+
 const hamburger = {
     id: 1,
     name: "Hamburger",
@@ -39,7 +54,7 @@ const hotTacos = {
     description: "Mexican tortilla & tacos",
     categories: [1, 3],
     price: 10.99,
-    calories: 78,
+    calories: 79,
     isFavourite: false,
     image: require("../../assets/dummyData/hot_tacos.png")
 }
@@ -219,7 +234,6 @@ const fromLocs = [
 
 export default {
     vegBiryani,
-    
     myProfile,
     categories,
     menu,
@@ -227,5 +241,5 @@ export default {
     myCart,
     myCards,
     allCards,
-    fromLocs,
+    fromLocs
 }

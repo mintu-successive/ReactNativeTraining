@@ -6,6 +6,7 @@ import CustomTextInput from "./CustomInputText";
 import LabelText from "./LabelText";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
+import FilterModal from "./FilterModal";
 
 export {
     TitleText,
@@ -15,5 +16,6 @@ export {
     CustomTextInput,
     LabelText,
     Header,
-    SearchBar
+    SearchBar,
+    FilterModal,
 }

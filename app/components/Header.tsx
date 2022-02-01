@@ -33,7 +33,7 @@ export default Header
 
 const styles = StyleSheet.create({
     container:{
-        padding:5
+        marginTop:5
     },
     subContainer:{
         flexDirection:'row',
