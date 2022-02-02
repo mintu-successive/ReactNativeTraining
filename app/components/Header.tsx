@@ -1,28 +1,46 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import {COLORS, icons, images} from '../config/Constants'
+import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { COLORS, icons, images, SIZES } from '../config/Constants'
 
-const Header = ({ style, title }: any) => {
+const Header = ({
+    style,
+    title,
+    leftIcon,
+    leftButtonStyle,
+    rightButtonSyle,
+    rightIcon,
+    leftOnPress,
+    rightOnPress
+}: any) => {
     return (
-        <View style={[style,styles.container]}>
+        <View style={[style, styles.container]}>
 
             <View style={styles.subContainer}>
-                <TouchableOpacity style={styles.menuButton}>
-                    <Image
-                    style={styles.menuImage}
-                    source={icons.menu}
-                    resizeMode="contain"/>
-                </TouchableOpacity>
+                {leftIcon != "" &&
+                    <TouchableOpacity
+                        onPress={() => console.log("left")}
+                        style={[leftButtonStyle, styles.leftButton]}>
+                        <Image
+                            style={styles.leftIconImage}
+                            source={leftIcon} />
+                    </TouchableOpacity>
+                }
 
                 <Text style={styles.title}>{title}</Text>
 
-                <TouchableOpacity style={styles.profileButton}>
-                    <Image
-                    style={styles.profileImage}
-                    source={images.profile}
-                    resizeMode="contain"/>
-                </TouchableOpacity>
+                <View
+                    style={rightIcon == "" ? styles.emptyView : null}
+                >
+                    {rightIcon != "" &&
+                        <TouchableOpacity
+                            onPress={() => console.log("right")}
+                            style={[rightButtonSyle, styles.rightButton]}>
+                            <Image
+                                style={styles.rightIconImage}
+                                source={rightIcon} />
+                        </TouchableOpacity>
+                    }
+                </View>
             </View>
 
         </View>
@@ -32,39 +50,43 @@ const Header = ({ style, title }: any) => {
 export default Header
 
 const styles = StyleSheet.create({
-    container:{
-        marginTop:5
+    container: {
+        marginTop: 5
     },
-    subContainer:{
-        flexDirection:'row',
-        width:'100%',
-        justifyContent:'space-between',
-        alignItems:'center',
+    subContainer: {
+        flexDirection: 'row',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between'
     },
-    menuButton:{
-        backgroundColor:'white',
-        borderRadius:10,
+    leftButton: {
+        borderRadius: 10,
         borderColor: COLORS.gray3,
-        borderWidth:2,
-        padding:5,
+        borderWidth: 2,
+        padding: 5,
     },
-    menuImage:{
-        width:30,
-        height:30
-    }, 
-    title:{
-        fontSize:20,
-        fontWeight:'800',
+    leftIconImage: {
+        width: SIZES.width * 0.08,
+        height: SIZES.height * 0.045,
+        resizeMode: "contain"
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: '800',
         color: COLORS.black,
     },
-    profileButton:{
-        backgroundColor:'black',
-        borderRadius:10,
-        borderColor: COLORS.black,
-        borderWidth:2,
+    rightButton: {
+        borderRadius: 10,
+        padding: 5
     },
-    profileImage:{
-        width:40,
-        height:40
+    rightIconImage: {
+        width: SIZES.width * 0.1,
+        height: SIZES.height * 0.055,
+        resizeMode: "contain"
     },
+    emptyView: {
+        width: SIZES.width * 0.08,
+        borderRadius: 10,
+        padding: 5
+    }
 })

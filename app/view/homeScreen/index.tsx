@@ -12,11 +12,20 @@ interface InputProp {
     popularList: any,
     filterModalVisible: Boolean,
     onFilterPress: (item: any) => void,
-    clickedItem: (item: any) => void
+    clickedItem: (item: any) => void,
+    onClickedPopularItem: (item: any) => void
 }
 
 const HomeScreen = (props: InputProp) => {
-    const { navigation, selectedCategory, clickedItem, popularList, onFilterPress, filterModalVisible } = props
+    const {
+        navigation,
+        selectedCategory,
+        clickedItem,
+        popularList,
+        onFilterPress,
+        filterModalVisible,
+        onClickedPopularItem
+    } = props
 
     const renderItemCategories = ({ item }: any) => (
         <TouchableOpacity
@@ -40,7 +49,9 @@ const HomeScreen = (props: InputProp) => {
     );
 
     const renderItemMain = ({ item, index }: any) => (
-        <TouchableOpacity style={styles.renderMainContainer}>
+        <TouchableOpacity
+            onPress={() => onClickedPopularItem(item)}
+            style={styles.renderMainContainer}>
             <View style={styles.caloriesContainer}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Image source={icons.calories}
@@ -67,21 +78,26 @@ const HomeScreen = (props: InputProp) => {
     return (
         <View style={[filterModalVisible ?
             {
-                opacity:0.2
+                opacity: 0.2
             } : {
-                opacity:1
+                opacity: 1
             },
-            styles.container
+        styles.container
         ]}>
             <StatusBar backgroundColor={COLORS.primary} />
 
             <Header
-                style={styles.header}
-                title="HOME" />
+                title="HOME"
+                leftIcon={icons.menu}
+                rightIcon={images.profile}
+                rightButtonSyle={styles.rightHeaderButton}
+                leftOnPress={() => { }}
+                rightOnPress={() => { }}
+            />
 
             <SearchBar
                 style={styles.search}
-                onFilterPress={()=> onFilterPress(!filterModalVisible)}
+                onFilterPress={() => onFilterPress(!filterModalVisible)}
             />
 
             <Text style={styles.deliveryText}>DELIVERY TO</Text>
@@ -139,9 +155,9 @@ const HomeScreen = (props: InputProp) => {
                 />
             </View>
 
-            <FilterModal 
-            visible={filterModalVisible}
-            onClose={()=>onFilterPress(!filterModalVisible)}/>
+            <FilterModal
+                visible={filterModalVisible}
+                onClose={() => onFilterPress(!filterModalVisible)} />
 
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.sectionHeadingContainer}>

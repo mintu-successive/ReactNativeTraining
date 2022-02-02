@@ -110,6 +110,9 @@ const styles = StyleSheet.create({
         color: COLORS.primary,
         fontSize: 20,
         fontWeight:'500'
+    },
+    rightHeaderButton:{
+        backgroundColor:'black'
     }
 })
 

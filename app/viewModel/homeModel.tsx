@@ -18,10 +18,11 @@ const HomeModel = (props: InputProp) => {
 
     const filterLists = () => {
         // setTimeout(() => {
-        //     let filtered = popularList.filter((item) => {
-        //         return item.categories.includes(selectedCategory)
+        //     let data = dummyData.menu[2].list
+        //     let filtered = data.filter((item) => {
+        //         return item.categories == selectedCategory
         //     }
-        //     ).map(({id,name,description,categories,price,calories,isFavourite,image}:any) => ({id,name,description,categories,price,calories,isFavourite,image}));
+        //     ).map((item) => item);
     
         //     console.log(filtered);
     
@@ -39,6 +40,11 @@ const HomeModel = (props: InputProp) => {
                 setItem(item)
                 setSelectedCategory(item.id)
                 filterLists()
+            }}
+            onClickedPopularItem={(item:any)=> {
+                navigation.navigate('FoodDetail', {
+                    item: item
+                  });
             }}
             onFilterPress={(item:any)=> setFilterModalVisible(item)}
         />
