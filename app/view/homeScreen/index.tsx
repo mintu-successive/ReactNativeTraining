@@ -38,13 +38,13 @@ const HomeScreen = (props: InputProp) => {
   return (
     <View
       style={[
-        filterModalVisible
-          ? {
-              opacity: 0.2,
-            }
-          : {
-              opacity: 1,
-            },
+        // filterModalVisible
+        //   ? {
+        //       opacity: 0.2,
+        //     }
+        //   : {
+        //       opacity: 1,
+        //     },
         styles.container,
       ]}>
       <StatusBar backgroundColor={COLORS.primary} />

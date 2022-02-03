@@ -14,11 +14,11 @@ const Header = ({
   title,
   leftIcon,
   leftButtonStyle,
-  rightButtonSyle,
+  rightButtonStyle,
   rightIcon,
   leftOnPress,
   rightOnPress,
-  isCart
+  isCart,
 }: any) => {
   return (
     <View style={[style, styles.container]}>
@@ -37,7 +37,7 @@ const Header = ({
           {rightIcon != '' && (
             <TouchableOpacity
               onPress={() => rightOnPress()}
-              style={[rightButtonSyle, styles.rightButton]}>
+              style={[rightButtonStyle, styles.rightButton]}>
               <Image style={styles.rightIconImage} source={rightIcon} />
               {isCart != null && (
                 <Text style={styles.cartItemNumberText}>

@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   categoriesFlatList:{
     marginVertical: 10,
     paddingVertical: 10,
-  }
+  },
 });
 
 export default styles;
