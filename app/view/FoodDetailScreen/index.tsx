@@ -80,8 +80,9 @@ const FoodDetailScreen = (props: InputProp) => {
                 leftIcon={icons.back}
                 rightIcon={icons.cart}
                 rightButtonSyle={styles.rightHeaderButton}
-                leftOnPress={() => { }}
+                leftOnPress={() => { navigation.goBack(null) }}
                 rightOnPress={() => { }}
+                isCart
             />
 
             <ScrollView
