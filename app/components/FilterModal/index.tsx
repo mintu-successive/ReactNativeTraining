@@ -6,6 +6,7 @@ import {
   Text,
   View,
   TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {CustomButton} from '..';
@@ -17,7 +18,9 @@ const FilterModal = ({visible, onClose}: any) => {
   return (
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={styles.main}>
-        <TouchableOpacity onPress={() => onClose()} style={styles.empty} />
+        <TouchableWithoutFeedback onPress={() => onClose()}>
+          <View style={styles.empty}></View>
+        </TouchableWithoutFeedback>
 
         <View style={styles.parent}>
           <View style={styles.headerContainer}>

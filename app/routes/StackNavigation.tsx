@@ -11,6 +11,7 @@ import LoginModel from '../viewModel/LoginModel';
 import PasswordRecoveryModel from '../viewModel/PasswordRecoveryModel';
 import OtpModel from '../viewModel/OtpModel';
 import FoodDetailModel from '../viewModel/FoodDetailModel';
+import MyCardsModel from '../viewModel/MyCardsModel';
 
 type RootStackList = {
   OnBoarding: Function;
@@ -21,6 +22,7 @@ type RootStackList = {
   Otp: Function;
   FoodDetail: Function;
   MyCart: Function;
+  MyCards: Function;
 };
 
 const Stack = createStackNavigator<RootStackList>();
@@ -34,6 +36,8 @@ const StackNavigator = () => {
           headerShown: false,
         }}>
         <Stack.Screen name="MyCart" component={MyCartModel} />
+
+        <Stack.Screen name="MyCards" component={MyCardsModel} />
         <Stack.Screen name="FoodDetail" component={FoodDetailModel} />
         <Stack.Screen name="Otp" component={OtpModel} />
         <Stack.Screen
