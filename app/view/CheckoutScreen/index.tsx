@@ -15,7 +15,7 @@ const CheckoutScreen = (props: InputProp) => {
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
-        <View style={{flex:1}}>
+        <View style={{flex: 1}}>
           <View style={styles.container}>
             <Header
               title="CHECKOUT"

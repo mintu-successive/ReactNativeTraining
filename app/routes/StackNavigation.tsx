@@ -1,19 +1,20 @@
 import React, {useEffect} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  HomeModel,
-  ProfileModel,
-  OnBoardingModel,
-  MyCartModel,
-  AddNewCardModel,
-} from '../viewModel';
 import LoginModel from '../viewModel/LoginModel';
 import PasswordRecoveryModel from '../viewModel/PasswordRecoveryModel';
 import OtpModel from '../viewModel/OtpModel';
 import FoodDetailModel from '../viewModel/FoodDetailModel';
 import MyCardsModel from '../viewModel/MyCardsModel';
-import CheckoutModel from '../viewModel/CheckoutModel';
+import {
+  AddNewCardModel,
+  CheckoutModel,
+  HomeModel,
+  MyCartModel,
+  OnBoardingModel,
+  PaymentSuccessModel,
+  ProfileModel,
+} from '../viewModel';
 
 type RootStackList = {
   OnBoarding: Function;
@@ -27,6 +28,7 @@ type RootStackList = {
   MyCards: Function;
   AddNewCard: Function;
   Checkout: Function;
+  PaymentSuccess: Function;
 };
 
 const Stack = createStackNavigator<RootStackList>();
@@ -35,10 +37,11 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Checkout"
+        initialRouteName="OnBoarding"
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="PaymentSuccess" component={PaymentSuccessModel} />
         <Stack.Screen name="Checkout" component={CheckoutModel} />
         <Stack.Screen name="AddNewCard" component={AddNewCardModel} />
         <Stack.Screen name="MyCart" component={MyCartModel} />

@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
+    backgroundColor: COLORS.white
   },
   imageBackground: {
     width: SIZES.width * 0.9,

@@ -63,7 +63,7 @@ const MyCardsScreen = (props: InputProp) => {
       <View style={{flex:0.1, justifyContent:'center'}}>
         <CustomButton 
         text={"Add"}
-        onPress={()=>{}}/>
+        onPress={()=>{ navigation.navigate("AddNewCard")}}/>
       </View>
     </View>
   );

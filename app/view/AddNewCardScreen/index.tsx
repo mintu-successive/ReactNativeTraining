@@ -25,7 +25,9 @@ const AddNewCardScreen = (props: InputProp) => {
   const {navigation} = props;
   return (
     <View style={styles.container}>
-      <Header title="ADD NEW CARD" leftIcon={icons.back} />
+      <Header title="ADD NEW CARD"
+      leftONpress={()=> navigation.goBack(null)}
+       leftIcon={icons.back} />
       <View style={{flex: 0.9}}>
         <ImageBackground style={styles.imageBackground} source={images.card}>
           <Image style={styles.cardImage} source={dummyData.allCards[0].icon} />
@@ -86,7 +88,7 @@ const AddNewCardScreen = (props: InputProp) => {
         </ScrollView>
       </View>
       <View style={{flex: 0.1, justifyContent: 'flex-end', marginBottom: 10}}>
-        <CustomButton text="Add Card" onPress={() => {}} />
+        <CustomButton text="Add Card" onPress={() => { navigation.navigate("PaymentSuccess")}} />
       </View>
     </View>
   );

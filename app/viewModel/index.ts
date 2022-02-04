@@ -3,7 +3,8 @@ import ProfileModel from './profileModel';
 import OnBoardingModel from './OnBoardingModel';
 import MyCartModel from './MyCartModel';
 import AddNewCardModel from './AddNewCardModel';
-import CheckoutScreen from '../view/CheckoutScreen';
+import CheckoutModel from './CheckoutModel';
+import PaymentSuccessModel from './PaymentSuccessModel';
 
 export {
   HomeModel,
@@ -11,5 +12,6 @@ export {
   OnBoardingModel,
   MyCartModel,
   AddNewCardModel,
-  CheckoutScreen,
+  CheckoutModel,
+  PaymentSuccessModel
 };

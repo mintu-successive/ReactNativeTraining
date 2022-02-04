@@ -62,7 +62,7 @@ const MyCartScreen = (props: InputProp) => {
         <View style={styles.placeOrderButton}>
           <CustomButton
             text="Place Your Order"
-            onPress={()=> navigation.navigate("MyCards")}
+            onPress={()=> navigation.navigate("Checkout")}
           />
         </View>
       </View>
