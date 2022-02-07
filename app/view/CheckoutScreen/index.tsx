@@ -3,7 +3,6 @@ import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import {CustomButton, Header} from '../../components';
 import {dummyData, icons} from '../../config/Constants';
-import RenderItem from './RenderItem';
 import styles from './style';
 
 interface InputProp {
@@ -24,19 +23,29 @@ const CheckoutScreen = (props: InputProp) => {
             />
 
             <View style={{flex: 2}}>
-              <FlatList
-                data={dummyData.myCards}
-                extraData={dummyData.myCards}
-                keyExtractor={(_, i) => i.toString()}
-                renderItem={({item, index}) => {
-                  return (
-                    <RenderItem item={item} index={index} selectedCard={0} />
-                  );
-                }}
-                style={styles.myCardsFlatList}
-                ItemSeparatorComponent={() => <View style={{margin: 5}} />}
-                showsVerticalScrollIndicator={false}
-              />
+              {dummyData.myCards.map((item, i) => {
+                return (
+                  <TouchableOpacity
+                    style={
+                      i != 0
+                        ? styles.myCardsContainer
+                        : styles.selectedContainer
+                    }>
+                    <View style={styles.subContainer}>
+                      <View style={styles.itemIconContainer}>
+                        <Image style={styles.itemIcon} source={item.icon} />
+                      </View>
+                      <Text style={styles.nameText}>{item.name}</Text>
+                    </View>
+                    <TouchableOpacity>
+                      <Image
+                        source={i == 0 ? icons.check_on : icons.check_off}
+                        style={styles.selectionBox}
+                      />
+                    </TouchableOpacity>
+                  </TouchableOpacity>
+                );
+              })}
             </View>
 
             <View style={{flex: 1}}>

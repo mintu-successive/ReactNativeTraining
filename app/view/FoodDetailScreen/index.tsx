@@ -94,7 +94,7 @@ const FoodDetailScreen = (props: InputProp) => {
         title="DETAILS"
         leftIcon={icons.back}
         rightIcon={icons.cart}
-        rightButtonSyle={styles.rightHeaderButton}
+        rightButtonStyle={styles.rightHeaderButton}
         leftOnPress={() => {
           navigation.goBack(null);
         }}

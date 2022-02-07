@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     justifyContent: 'space-between',
+    marginVertical: 5,
   },
   selectedContainer: {
     backgroundColor: 'white',
@@ -26,6 +27,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     justifyContent: 'space-between',
+    marginVertical: 5,
   },
   subContainer: {
     flexDirection: 'row',
@@ -60,54 +62,54 @@ const styles = StyleSheet.create({
     ...FONTS.h3,
     color: COLORS.black,
   },
-  deliveryContainer:{
+  deliveryContainer: {
     borderRadius: SIZES.radius,
     borderColor: COLORS.lightGray1,
     borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    padding:10,
-    marginTop:10
+    padding: 10,
+    marginTop: 10,
   },
-  deliveryIcon:{
+  deliveryIcon: {
     width: 40,
     height: 40,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
-  addressText:{
+  addressText: {
     ...FONTS.body3,
     color: COLORS.black,
     marginStart: 5,
-    fontWeight: '600'
+    fontWeight: '600',
   },
-  textInput:{
+  textInput: {
     borderTopStartRadius: SIZES.radius,
     borderBottomStartRadius: SIZES.radius,
-    height: SIZES.height*0.06,
-    flex:0.8
+    height: SIZES.height * 0.06,
+    flex: 0.8,
   },
-  couponContainer:{
+  couponContainer: {
     borderRadius: SIZES.radius,
     borderColor: COLORS.lightGray1,
     borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop:10,
-    height: SIZES.height*0.06,
-    paddingVertical:10,
-    paddingStart:10
+    marginTop: 10,
+    height: SIZES.height * 0.06,
+    paddingVertical: 10,
+    paddingStart: 10,
   },
-  couponIconContainer:{
-    flex:0.2,
-    height: SIZES.height*0.06,
+  couponIconContainer: {
+    flex: 0.2,
+    height: SIZES.height * 0.06,
     backgroundColor: COLORS.primary,
     borderTopEndRadius: SIZES.radius,
     borderBottomEndRadius: SIZES.radius,
-    alignItems:'center',
-    justifyContent:'center'
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  couponIcon:{
-    width:40,
+  couponIcon: {
+    width: 40,
     height: 40,
     resizeMode: 'contain',
   },

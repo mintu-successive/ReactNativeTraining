@@ -7,7 +7,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingHorizontal: 20,
   },
-  header: {},
+  header: {
+    // marginTop: 10,
+  },
   search: {},
   deliveryText: {
     marginTop: 20,
@@ -110,11 +112,11 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     paddingVertical: 10,
   },
-  popularFlatList:{
+  popularFlatList: {
     marginVertical: 10,
     paddingVertical: 10,
   },
-  categoriesFlatList:{
+  categoriesFlatList: {
     marginVertical: 10,
     paddingVertical: 10,
   },

@@ -47,13 +47,14 @@ const HomeScreen = (props: InputProp) => {
         //     },
         styles.container,
       ]}>
-      <StatusBar backgroundColor={COLORS.primary} />
+      {/* <StatusBar backgroundColor={COLORS.primary} /> */}
 
       <Header
         title="HOME"
+        style={styles.header}
         leftIcon={icons.menu}
         rightIcon={images.profile}
-        rightButtonSyle={styles.rightHeaderButton}
+        rightButtonStyle={styles.rightHeaderButton}
         leftOnPress={() => {}}
         rightOnPress={() => {}}
       />

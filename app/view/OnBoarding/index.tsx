@@ -15,7 +15,7 @@ const OnBoarding = (props: InputProp) => {
     return (
         <View style={styles.container}>
 
-            <StatusBar translucent backgroundColor={COLORS.primary} {...props} />
+            {/* <StatusBar translucent backgroundColor={COLORS.primary} {...props} /> */}
 
             <Image
                 source={constants.onboarding_screens[index].backgroundImage}
