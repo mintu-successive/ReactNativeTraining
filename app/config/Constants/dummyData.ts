@@ -148,11 +148,11 @@ const burgerKing = {
 const orders_history = [
   {
     title: '19 Sep 2021',
-    orders: [pizzaHut, kfc, dominos],
+    data: [pizzaHut, kfc, dominos],
   },
   {
     title: '15 Sep 2021',
-    orders: [starbucks],
+    data: [starbucks],
   },
 ];
 
@@ -161,7 +161,7 @@ const upcoming_orders = [starbucks, kfc];
 const latest_orders = [
   {
     title: 'Latest Orders',
-    orders: [burgerKing, starbucks],
+    data: [burgerKing, starbucks],
   },
 ];
 
@@ -312,4 +312,7 @@ export default {
   myCards,
   allCards,
   fromLocs,
+  orders_history,
+  upcoming_orders,
+  latest_orders
 };
