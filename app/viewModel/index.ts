@@ -5,6 +5,7 @@ import MyCartModel from './MyCartModel';
 import AddNewCardModel from './AddNewCardModel';
 import CheckoutModel from './CheckoutModel';
 import PaymentSuccessModel from './PaymentSuccessModel';
+import DeliveryStatusModel from './DeliveryStatusModel';
 
 export {
   HomeModel,
@@ -13,5 +14,6 @@ export {
   MyCartModel,
   AddNewCardModel,
   CheckoutModel,
-  PaymentSuccessModel
+  PaymentSuccessModel,
+  DeliveryStatusModel
 };

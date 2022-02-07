@@ -9,6 +9,7 @@ import MyCardsModel from '../viewModel/MyCardsModel';
 import {
   AddNewCardModel,
   CheckoutModel,
+  DeliveryStatusModel,
   HomeModel,
   MyCartModel,
   OnBoardingModel,
@@ -29,6 +30,7 @@ type RootStackList = {
   AddNewCard: Function;
   Checkout: Function;
   PaymentSuccess: Function;
+  DeliveryStatus: Function;
 };
 
 const Stack = createStackNavigator<RootStackList>();
@@ -37,10 +39,11 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="OnBoarding"
+        initialRouteName="DeliveryStatus"
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="DeliveryStatus" component={DeliveryStatusModel} />
         <Stack.Screen name="PaymentSuccess" component={PaymentSuccessModel} />
         <Stack.Screen name="Checkout" component={CheckoutModel} />
         <Stack.Screen name="AddNewCard" component={AddNewCardModel} />
@@ -48,12 +51,13 @@ const StackNavigator = () => {
         <Stack.Screen name="MyCards" component={MyCardsModel} />
         <Stack.Screen name="FoodDetail" component={FoodDetailModel} />
         <Stack.Screen name="Otp" component={OtpModel} />
+        <Stack.Screen name="Login" component={LoginModel} />
+        <Stack.Screen name="OnBoarding" component={OnBoardingModel} />
+        <Stack.Screen name="Profile" component={ProfileModel} />
         <Stack.Screen
           name="PasswordRecovery"
           component={PasswordRecoveryModel}
         />
-        <Stack.Screen name="Login" component={LoginModel} />
-        <Stack.Screen name="OnBoarding" component={OnBoardingModel} />
         <Stack.Screen
           name="Home"
           component={HomeModel}
@@ -61,7 +65,6 @@ const StackNavigator = () => {
             headerLeft: () => null,
           }}
         />
-        <Stack.Screen name="Profile" component={ProfileModel} />
       </Stack.Navigator>
     </NavigationContainer>
   );
