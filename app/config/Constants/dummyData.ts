@@ -103,6 +103,8 @@ const pizzaHut = {
   price: '$35.30',
   image: require('../../assets/dummyData/pizza_hut.png'),
   order_id: '#18888',
+  discount: '20% Off',
+  validity: 'Valid until 01 Jan 2022',
 };
 
 const kfc = {
@@ -113,6 +115,8 @@ const kfc = {
   price: '$55.00',
   image: require('../../assets/dummyData/kfc.png'),
   order_id: '#28888',
+  discount: '20% Off',
+  validity: 'Valid until 01 Jan 2022',
 };
 
 const dominos = {
@@ -123,6 +127,8 @@ const dominos = {
   price: '$15.30',
   image: require('../../assets/dummyData/dominos.png'),
   order_id: '#38888',
+  discount: '20% Off',
+  validity: 'Valid until 01 Jan 2022',
 };
 
 const starbucks = {
@@ -133,6 +139,8 @@ const starbucks = {
   price: '$40.00',
   image: require('../../assets/dummyData/starbucks.png'),
   order_id: '#48888',
+  discount: '20% Off',
+  validity: 'Valid until 01 Jan 2022',
 };
 
 const burgerKing = {
@@ -143,6 +151,8 @@ const burgerKing = {
   price: '$12.00',
   image: require('../../assets/dummyData/burger_king.png'),
   order_id: '#58888',
+  discount: '20% Off',
+  validity: 'Valid until 01 Jan 2022',
 };
 
 const orders_history = [
@@ -164,6 +174,14 @@ const latest_orders = [
     data: [burgerKing, starbucks],
   },
 ];
+
+const available_coupons = [
+  burgerKing, kfc, pizzaHut, starbucks, dominos
+]
+
+const used_coupons = [
+  burgerKing, starbucks
+]
 
 const menu = [
   {
@@ -314,5 +332,7 @@ export default {
   fromLocs,
   orders_history,
   upcoming_orders,
-  latest_orders
+  latest_orders,
+  available_coupons,
+  used_coupons
 };

@@ -12,6 +12,7 @@ import {
   DeliveryStatusModel,
   HomeModel,
   MyCartModel,
+  MyCouponModel,
   MyOrdersModel,
   OnBoardingModel,
   PaymentSuccessModel,
@@ -33,6 +34,7 @@ type RootStackList = {
   PaymentSuccess: Function;
   DeliveryStatus: Function;
   MyOrders: Function;
+  MyCoupon: Function;
 };
 
 const Stack = createStackNavigator<RootStackList>();
@@ -41,10 +43,11 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="MyOrders"
+        initialRouteName="MyCoupon"
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="MyCoupon" component={MyCouponModel} />
         <Stack.Screen name="MyOrders" component={MyOrdersModel} />
         <Stack.Screen name="DeliveryStatus" component={DeliveryStatusModel} />
         <Stack.Screen name="PaymentSuccess" component={PaymentSuccessModel} />

@@ -7,6 +7,7 @@ import CheckoutModel from './CheckoutModel';
 import PaymentSuccessModel from './PaymentSuccessModel';
 import DeliveryStatusModel from './DeliveryStatusModel';
 import MyOrdersModel from './MyOrdersModel';
+import MyCouponModel from './MyCouponModel';
 
 export {
   HomeModel,
@@ -17,5 +18,6 @@ export {
   CheckoutModel,
   PaymentSuccessModel,
   DeliveryStatusModel,
-  MyOrdersModel
+  MyOrdersModel,
+  MyCouponModel
 };
