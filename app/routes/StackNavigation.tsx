@@ -10,6 +10,7 @@ import {
   AddNewCardModel,
   CheckoutModel,
   DeliveryStatusModel,
+  EditAccountModel,
   HomeModel,
   MyAccountModel,
   MyCartModel,
@@ -39,6 +40,7 @@ type RootStackList = {
   MyCoupon: Function;
   Review: Function;
   MyAccount: Function;
+  EditAccount: Function;
 };
 
 const Stack = createStackNavigator<RootStackList>();
@@ -47,10 +49,11 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="MyAccount"
+        initialRouteName="EditAccount"
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="EditAccount" component={EditAccountModel} />
         <Stack.Screen name="MyAccount" component={MyAccountModel} />
         <Stack.Screen name="Review" component={ReviewModel} />
         <Stack.Screen name="MyCoupon" component={MyCouponModel} />

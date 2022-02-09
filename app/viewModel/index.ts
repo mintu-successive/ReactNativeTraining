@@ -10,6 +10,7 @@ import MyOrdersModel from './MyOrdersModel';
 import MyCouponModel from './MyCouponModel';
 import ReviewModel from './ReveiwModel';
 import MyAccountModel from './MyAccountModel';
+import EditAccountModel from './EditAccount';
 
 export {
   HomeModel,
@@ -23,5 +24,6 @@ export {
   MyOrdersModel,
   MyCouponModel,
   ReviewModel,
-  MyAccountModel
+  MyAccountModel,
+  EditAccountModel
 };
