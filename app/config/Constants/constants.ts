@@ -181,7 +181,7 @@ const settings = [
   {
       id: 1,
       name: 'Change Password',
-      navigate: 'Changepassword',
+      navigate: '',
       icon: require('../../assets/icons/lock.png')
   },
   {
@@ -193,7 +193,7 @@ const settings = [
   {
       id: 3,
       name: 'Notification',
-      navigate: 'NotificationSetting',
+      navigate: '',
       icon: require('../../assets/icons/notification.png')
   },
   {

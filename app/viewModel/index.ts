@@ -11,6 +11,7 @@ import MyCouponModel from './MyCouponModel';
 import ReviewModel from './ReveiwModel';
 import MyAccountModel from './MyAccountModel';
 import EditAccountModel from './EditAccount';
+import SettingsModel from './SettingsModel';
 
 export {
   HomeModel,
@@ -25,5 +26,6 @@ export {
   MyCouponModel,
   ReviewModel,
   MyAccountModel,
-  EditAccountModel
+  EditAccountModel,
+  SettingsModel
 };

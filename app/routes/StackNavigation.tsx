@@ -20,6 +20,7 @@ import {
   PaymentSuccessModel,
   ProfileModel,
   ReviewModel,
+  SettingsModel,
 } from '../viewModel';
 
 type RootStackList = {
@@ -41,6 +42,7 @@ type RootStackList = {
   Review: Function;
   MyAccount: Function;
   EditAccount: Function;
+  Settings: Function;
 };
 
 const Stack = createStackNavigator<RootStackList>();
@@ -49,10 +51,11 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="EditAccount"
+        initialRouteName="Settings"
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Settings" component={SettingsModel} />
         <Stack.Screen name="EditAccount" component={EditAccountModel} />
         <Stack.Screen name="MyAccount" component={MyAccountModel} />
         <Stack.Screen name="Review" component={ReviewModel} />
