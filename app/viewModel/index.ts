@@ -9,6 +9,7 @@ import DeliveryStatusModel from './DeliveryStatusModel';
 import MyOrdersModel from './MyOrdersModel';
 import MyCouponModel from './MyCouponModel';
 import ReviewModel from './ReveiwModel';
+import MyAccountModel from './MyAccountModel';
 
 export {
   HomeModel,
@@ -21,5 +22,6 @@ export {
   DeliveryStatusModel,
   MyOrdersModel,
   MyCouponModel,
-  ReviewModel
+  ReviewModel,
+  MyAccountModel
 };

@@ -177,6 +177,64 @@ const common = {
   PLEASE_RATE: 'Please rate Delivery Service'
 };
 
+const settings = [
+  {
+      id: 1,
+      name: 'Change Password',
+      navigate: 'Changepassword',
+      icon: require('../../assets/icons/lock.png')
+  },
+  {
+      id: 2,
+      name: 'Preferences',
+      navigate: '',
+      icon: require('../../assets/icons/filter.png')
+  },
+  {
+      id: 3,
+      name: 'Notification',
+      navigate: 'NotificationSetting',
+      icon: require('../../assets/icons/notification.png')
+  },
+  {
+      id: 4,
+      name: 'Data use',
+      navigate: '',
+      icon: require('../../assets/icons/graph.png')
+  },
+  {
+      id: 5,
+      name: 'Check Update',
+      navigate: '',
+      icon: require('../../assets/icons/reload.png')
+  },
+  {
+      id: 6,
+      name: 'Contact Us',
+      navigate: '',
+      icon: require('../../assets/icons/call.png')
+  },
+  {
+      id: 7,
+      name: 'Privacy Policy',
+      navigate: '',
+      icon: require('../../assets/icons/privacy.png')
+  },
+  {
+      id: 8,
+      name: 'Terms & Conditions',
+      navigate: '',
+      icon: require('../../assets/icons/terms.png')
+  },
+  {
+      id: 9,
+      name: 'Logout',
+      navigate: '',
+      icon: require('../../assets/icons/logout.png')
+  },
+
+]
+
 export default {
   onboarding_screens,
   screens,
@@ -190,4 +248,5 @@ export default {
   CLOSE_ICON,
   DELIVERY_HEADER,
   common,
+  settings
 };

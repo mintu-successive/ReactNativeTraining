@@ -3,6 +3,14 @@ const myProfile = {
   profile_image: require('../../assets/images/profile.png'),
   address: 'No. 88, Jln Padungan, Kuching',
   rating: 4,
+  number: '111-222-3333',
+  id: '111 2222',
+  card : 'Not Updated',
+  dob: '03/03/1990',
+  gender: 'Male',
+  joined: 'March 2017',
+  email: 'byprogrammers@gmail.com',
+  fullAddress: 'Jalan Padungan, 93100\nKuching, Sarawak, Malaysia'
 };
 
 const categories = [
