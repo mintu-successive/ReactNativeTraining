@@ -320,6 +320,20 @@ const fromLocs = [
   },
 ];
 
+const review = {
+  name: 'Williams Adam',
+  type: 'Delivery Man',
+  status: 'Order Delivered',
+}
+
+const add_tips = [
+  "No Tips",
+  "$5",
+  "$10",
+  "$15",
+  "$20"
+]
+
 export default {
   vegBiryani,
   myProfile,
@@ -334,5 +348,7 @@ export default {
   upcoming_orders,
   latest_orders,
   available_coupons,
-  used_coupons
+  used_coupons,
+  review,
+  add_tips
 };

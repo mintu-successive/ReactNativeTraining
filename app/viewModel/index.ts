@@ -8,6 +8,7 @@ import PaymentSuccessModel from './PaymentSuccessModel';
 import DeliveryStatusModel from './DeliveryStatusModel';
 import MyOrdersModel from './MyOrdersModel';
 import MyCouponModel from './MyCouponModel';
+import ReviewModel from './ReveiwModel';
 
 export {
   HomeModel,
@@ -19,5 +20,6 @@ export {
   PaymentSuccessModel,
   DeliveryStatusModel,
   MyOrdersModel,
-  MyCouponModel
+  MyCouponModel,
+  ReviewModel
 };

@@ -17,7 +17,7 @@ const MyCouponScreen = (props: InputProp) => {
   return (
     <View style={styles.container}>
       <Header
-        title="MY ORDERS"
+        title="MY COUPONS"
         leftIcon={icons.back}
         rightIcon={images.profile}
         rightButtonStyle={styles.rightHeaderButton}

@@ -173,7 +173,8 @@ const common = {
   ESTIMATED_DELIVERY: 'Estimated Delivery',
   DELIVERY_DATE_TIME: '12 Sept 2020/ 12:30PM',
   TRACK_ORDER: 'Track Order',
-  ORDER_ID: 'NY0215NI'
+  ORDER_ID: 'NY0215NI',
+  PLEASE_RATE: 'Please rate Delivery Service'
 };
 
 export default {
