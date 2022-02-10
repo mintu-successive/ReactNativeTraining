@@ -14,6 +14,7 @@ import EditAccountModel from './EditAccount';
 import SettingsModel from './SettingsModel';
 import ChangePasswordModel from './ChangePasswordModel';
 import NotificationModel from './NotificationModel';
+import NotificationTabModel from './NotificationTabModel';
 
 export {
   HomeModel,
@@ -31,5 +32,6 @@ export {
   EditAccountModel,
   SettingsModel,
   ChangePasswordModel,
-  NotificationModel
+  NotificationModel,
+  NotificationTabModel
 };

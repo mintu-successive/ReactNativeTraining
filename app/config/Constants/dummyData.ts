@@ -347,6 +347,31 @@ const notification = [
   },
 ];
 
+const noti1 = {
+  title: 'Domino\'s-Buy 1 get 1 free',
+  desc: 'Buy 1 get 1 free for small sizes until Nov 30, 2021',
+  time: 'a few seconds ago',
+  icon: require('../../assets/dummyData/dominos.png')
+}
+
+const noti2 = {
+  title: 'Veg Biryani - 35% sale today',
+  desc: 'Buy 1 get 1 free for small sizes until Nov 30, 2021',
+  time: '5 mins ago',
+  icon: require('../../assets/dummyData/veg_biryani.png')
+}
+
+const notification_list = [
+  {
+    title: 'Today',
+    data: [noti1, noti2]
+  },
+  {
+    title: 'Yesterday',
+    data: [noti1, noti2]
+  }
+]
+
 export default {
   vegBiryani,
   myProfile,
@@ -364,5 +389,6 @@ export default {
   used_coupons,
   review,
   add_tips,
-  notification
+  notification,
+  notification_list
 };

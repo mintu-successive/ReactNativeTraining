@@ -18,6 +18,7 @@ import {
   MyCouponModel,
   MyOrdersModel,
   NotificationModel,
+  NotificationTabModel,
   OnBoardingModel,
   PaymentSuccessModel,
   ProfileModel,
@@ -47,6 +48,7 @@ type RootStackList = {
   Settings: Function;
   ChangePassword: Function;
   Notification: Function;
+  NotificationTab: Function;
 };
 
 const Stack = createStackNavigator<RootStackList>();
@@ -55,10 +57,11 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Notification"
+        initialRouteName="NotificationTab"
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="NotificationTab" component={NotificationTabModel} />
         <Stack.Screen name="Notification" component={NotificationModel} />
         <Stack.Screen name="ChangePassword" component={ChangePasswordModel} />
         <Stack.Screen name="Settings" component={SettingsModel} />
