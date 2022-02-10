@@ -5,12 +5,12 @@ const myProfile = {
   rating: 4,
   number: '111-222-3333',
   id: '111 2222',
-  card : 'Not Updated',
+  card: 'Not Updated',
   dob: '03/03/1990',
   gender: 'Male',
   joined: 'March 2017',
   email: 'byprogrammers@gmail.com',
-  fullAddress: 'Jalan Padungan, 93100\nKuching, Sarawak, Malaysia'
+  fullAddress: 'Jalan Padungan, 93100\nKuching, Sarawak, Malaysia',
 };
 
 const categories = [
@@ -183,13 +183,9 @@ const latest_orders = [
   },
 ];
 
-const available_coupons = [
-  burgerKing, kfc, pizzaHut, starbucks, dominos
-]
+const available_coupons = [burgerKing, kfc, pizzaHut, starbucks, dominos];
 
-const used_coupons = [
-  burgerKing, starbucks
-]
+const used_coupons = [burgerKing, starbucks];
 
 const menu = [
   {
@@ -332,15 +328,24 @@ const review = {
   name: 'Williams Adam',
   type: 'Delivery Man',
   status: 'Order Delivered',
-}
+};
 
-const add_tips = [
-  "No Tips",
-  "$5",
-  "$10",
-  "$15",
-  "$20"
-]
+const add_tips = ['No Tips', '$5', '$10', '$15', '$20'];
+
+const notification = [
+  {
+    title: 'Notifications',
+    desc: 'You will receive daily updates',
+    status: true,
+    icon: require('../../assets/icons/notification.png'),
+  },
+  {
+    title: 'Promotional Notifications',
+    desc: 'You will receive daily updates',
+    status: false,
+    icon: require('../../assets/icons/notification.png'),
+  },
+];
 
 export default {
   vegBiryani,
@@ -358,5 +363,6 @@ export default {
   available_coupons,
   used_coupons,
   review,
-  add_tips
+  add_tips,
+  notification
 };

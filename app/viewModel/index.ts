@@ -13,6 +13,7 @@ import MyAccountModel from './MyAccountModel';
 import EditAccountModel from './EditAccount';
 import SettingsModel from './SettingsModel';
 import ChangePasswordModel from './ChangePasswordModel';
+import NotificationModel from './NotificationModel';
 
 export {
   HomeModel,
@@ -29,5 +30,6 @@ export {
   MyAccountModel,
   EditAccountModel,
   SettingsModel,
-  ChangePasswordModel
+  ChangePasswordModel,
+  NotificationModel
 };

@@ -8,6 +8,7 @@ import Header from "./Header";
 import SearchBar from "./SearchBar";
 import FilterModal from "./FilterModal";
 import PasswordInputText from "./PasswordInputText";
+import Switch from "./switch";
 
 export {
     TitleText,
@@ -19,5 +20,6 @@ export {
     Header,
     SearchBar,
     FilterModal,
-    PasswordInputText
+    PasswordInputText,
+    Switch
 }
