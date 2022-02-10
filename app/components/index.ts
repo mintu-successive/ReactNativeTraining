@@ -7,6 +7,7 @@ import LabelText from "./LabelText";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import FilterModal from "./FilterModal";
+import PasswordInputText from "./PasswordInputText";
 
 export {
     TitleText,
@@ -18,4 +19,5 @@ export {
     Header,
     SearchBar,
     FilterModal,
+    PasswordInputText
 }

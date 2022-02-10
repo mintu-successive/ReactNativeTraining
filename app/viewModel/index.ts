@@ -12,6 +12,7 @@ import ReviewModel from './ReveiwModel';
 import MyAccountModel from './MyAccountModel';
 import EditAccountModel from './EditAccount';
 import SettingsModel from './SettingsModel';
+import ChangePasswordModel from './ChangePasswordModel';
 
 export {
   HomeModel,
@@ -27,5 +28,6 @@ export {
   ReviewModel,
   MyAccountModel,
   EditAccountModel,
-  SettingsModel
+  SettingsModel,
+  ChangePasswordModel
 };

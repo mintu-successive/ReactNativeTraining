@@ -8,6 +8,7 @@ import FoodDetailModel from '../viewModel/FoodDetailModel';
 import MyCardsModel from '../viewModel/MyCardsModel';
 import {
   AddNewCardModel,
+  ChangePasswordModel,
   CheckoutModel,
   DeliveryStatusModel,
   EditAccountModel,
@@ -43,6 +44,7 @@ type RootStackList = {
   MyAccount: Function;
   EditAccount: Function;
   Settings: Function;
+  ChangePassword: Function;
 };
 
 const Stack = createStackNavigator<RootStackList>();
@@ -51,10 +53,11 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Settings"
+        initialRouteName="ChangePassword"
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="ChangePassword" component={ChangePasswordModel} />
         <Stack.Screen name="Settings" component={SettingsModel} />
         <Stack.Screen name="EditAccount" component={EditAccountModel} />
         <Stack.Screen name="MyAccount" component={MyAccountModel} />
