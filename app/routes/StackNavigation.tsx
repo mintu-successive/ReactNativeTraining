@@ -25,6 +25,8 @@ import {
   ReviewModel,
   SettingsModel,
 } from '../viewModel';
+import Main from '../view/MainScreen';
+import DrawerNavigator from './Drawer';
 
 type RootStackList = {
   OnBoarding: Function;
@@ -49,6 +51,8 @@ type RootStackList = {
   ChangePassword: Function;
   Notification: Function;
   NotificationTab: Function;
+  Main: Function;
+  Drawer: Function;
 };
 
 const Stack = createStackNavigator<RootStackList>();
@@ -57,10 +61,11 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="NotificationTab"
+        initialRouteName="Drawer"
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Drawer" component={DrawerNavigator} />
         <Stack.Screen name="NotificationTab" component={NotificationTabModel} />
         <Stack.Screen name="Notification" component={NotificationModel} />
         <Stack.Screen name="ChangePassword" component={ChangePasswordModel} />
@@ -84,13 +89,6 @@ const StackNavigator = () => {
         <Stack.Screen
           name="PasswordRecovery"
           component={PasswordRecoveryModel}
-        />
-        <Stack.Screen
-          name="Home"
-          component={HomeModel}
-          options={{
-            headerLeft: () => null,
-          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,3 +1,5 @@
+import { icons } from ".";
+
 const myProfile = {
   name: 'ByProgrammers',
   profile_image: require('../../assets/images/profile.png'),
@@ -348,27 +350,75 @@ const notification = [
 ];
 
 const noti1 = {
-  title: 'Domino\'s-Buy 1 get 1 free',
+  title: "Domino's-Buy 1 get 1 free",
   desc: 'Buy 1 get 1 free for small sizes until Nov 30, 2021',
   time: 'a few seconds ago',
-  icon: require('../../assets/dummyData/dominos.png')
-}
+  icon: require('../../assets/dummyData/dominos.png'),
+};
 
 const noti2 = {
   title: 'Veg Biryani - 35% sale today',
   desc: 'Buy 1 get 1 free for small sizes until Nov 30, 2021',
   time: '5 mins ago',
-  icon: require('../../assets/dummyData/veg_biryani.png')
-}
+  icon: require('../../assets/dummyData/veg_biryani.png'),
+};
 
 const notification_list = [
   {
     title: 'Today',
-    data: [noti1, noti2]
+    data: [noti1, noti2],
   },
   {
     title: 'Yesterday',
-    data: [noti1, noti2]
+    data: [noti1, noti2],
+  },
+];
+
+const drawer_data = [
+  {
+    label : 'Home',
+    route : 'Home',
+    icon : icons.home
+  },
+  {
+    label : 'My Wallet',
+    route : '',
+    icon : icons.wallet
+  },
+  {
+    label : 'Notification',
+    route : 'Notification',
+    icon : icons.notification
+  },
+  {
+    label : 'Favourite',
+    route : '',
+    icon : icons.love
+  },
+  {
+    label : 'Track Your Order',
+    route : '',
+    icon : icons.home
+  },
+  {
+    label : 'Coupons',
+    route : 'Coupons',
+    icon : icons.coupon
+  },
+  {
+    label : 'Settings',
+    route : 'Settings',
+    icon : icons.setting
+  },
+  {
+    label : 'Invite a Friend',
+    route : '',
+    icon : icons.profile
+  },
+  {
+    label : 'Help Center',
+    route : '',
+    icon : icons.help
   }
 ]
 
@@ -390,5 +440,6 @@ export default {
   review,
   add_tips,
   notification,
-  notification_list
+  notification_list,
+  drawer_data
 };

@@ -13,6 +13,8 @@ import SelectDropdown from 'react-native-select-dropdown';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import RenderItemCategories from './RenderItemCategories';
 import RenderItemMain from './RenderItemMain';
+import MGPasswordInputText from 'custom-password-input-text';
+
 
 interface InputProp {
   navigation: any;
@@ -123,6 +125,8 @@ const HomeScreen = (props: InputProp) => {
           }}
         />
       </View>
+
+      <MGPasswordInputText placeHolder="Enter Password"/>
 
       <FilterModal
         visible={filterModalVisible}

@@ -1,0 +1,14 @@
+{
+  "name": "custom-password-input-text",
+  "version": "1.0.0",
+  "description": "This component is used for password input text.",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "Mintu Giri",
+  "license": "ISC"
+}

@@ -9,6 +9,7 @@ import SearchBar from "./SearchBar";
 import FilterModal from "./FilterModal";
 import PasswordInputText from "./PasswordInputText";
 import Switch from "./switch";
+import CustomDrawer from "./CustomDrawer";
 
 export {
     TitleText,
@@ -21,5 +22,6 @@ export {
     SearchBar,
     FilterModal,
     PasswordInputText,
-    Switch
+    Switch,
+    CustomDrawer
 }

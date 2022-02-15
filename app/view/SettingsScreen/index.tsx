@@ -15,7 +15,8 @@ const SettingsScreen = (props: InputProp) => {
 
   return (
     <View style={styles.container}>
-      <Header title="SETTINGS" leftIcon={icons.back} />
+      <Header title="SETTINGS" leftIcon={icons.back}
+      leftOnPress={()=>{}} />
 
       <View style={styles.flatListContainer}>
         <FlatList
