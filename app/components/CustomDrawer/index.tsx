@@ -10,7 +10,6 @@ import {constants, dummyData, icons, images} from '../../config/Constants';
 import RenderItem from './RenderItem';
 
 const CustomDrawer = (props: any) => {
-  console.log(props)
   return (
     <View style={styles.container}>
       <View>

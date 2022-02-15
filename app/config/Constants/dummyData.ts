@@ -1,4 +1,4 @@
-import { icons } from ".";
+import icons from "../../config/Constants/icons";
 
 const myProfile = {
   name: 'ByProgrammers',
