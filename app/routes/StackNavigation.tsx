@@ -25,7 +25,7 @@ import {
   ReviewModel,
   SettingsModel,
 } from '../viewModel';
-import Main from '../view/MainScreen';
+import TabNavigator from './TabNavigator';
 import DrawerNavigator from './Drawer';
 
 type RootStackList = {

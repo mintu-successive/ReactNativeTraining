@@ -50,6 +50,8 @@ const location_pin = require("../../assets/icons/location_pin.png")
 const navigator = require("../../assets/icons/navigator.png")
 const navigator1 = require("../../assets/icons/navigator1.png")
 const option = require("../../assets/icons/option.png")
+const camera = require("../../assets/icons/camera.png")
+const gallery = require("../../assets/icons/gallery.png")
 
 export default {
     apple,
@@ -103,5 +105,7 @@ export default {
     location_pin,
     navigator,
     navigator1,
-    option
+    option,
+    camera,
+    gallery
 }

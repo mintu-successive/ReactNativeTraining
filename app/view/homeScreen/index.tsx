@@ -1,20 +1,12 @@
 import React from 'react';
 import {Image, StatusBar, Text, TouchableOpacity, View} from 'react-native';
 import {FilterModal, Header, SearchBar, TitleText} from '../../components';
-import {
-  COLORS,
-  constants,
-  images,
-  icons,
-  dummyData,
-} from '../../config/Constants';
+import {images, icons, dummyData} from '../../config/Constants';
 import styles from './style';
 import SelectDropdown from 'react-native-select-dropdown';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import RenderItemCategories from './RenderItemCategories';
 import RenderItemMain from './RenderItemMain';
-import MGPasswordInputText from 'custom-password-input-text';
-
 
 interface InputProp {
   navigation: any;
@@ -38,17 +30,7 @@ const HomeScreen = (props: InputProp) => {
   } = props;
 
   return (
-    <View
-      style={[
-        // filterModalVisible
-        //   ? {
-        //       opacity: 0.2,
-        //     }
-        //   : {
-        //       opacity: 1,
-        //     },
-        styles.container,
-      ]}>
+    <View style={[styles.container]}>
       {/* <StatusBar backgroundColor={COLORS.primary} /> */}
 
       <Header
@@ -125,8 +107,6 @@ const HomeScreen = (props: InputProp) => {
           }}
         />
       </View>
-
-      <MGPasswordInputText placeHolder="Enter Password"/>
 
       <FilterModal
         visible={filterModalVisible}

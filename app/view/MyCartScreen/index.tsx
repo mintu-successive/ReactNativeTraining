@@ -6,12 +6,8 @@ import {icons, dummyData} from '../../config/Constants';
 import RenderItemCart from './RenderItemCart';
 import styles from './style';
 
-interface InputProp {
-  navigation: any;
-}
-
-const MyCartScreen = (props: InputProp) => {
-  const {navigation} = props;
+const MyCartScreen = (props: any) => {
+  const {navigation, data, total, setData} = props;
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <View style={styles.container}>
@@ -28,14 +24,21 @@ const MyCartScreen = (props: InputProp) => {
         />
 
         <FlatList
-          data={dummyData.myCart}
-          extraData={dummyData.myCart}
+          data={data}
+          extraData={data}
           keyExtractor={(_, i) => i.toString()}
           renderItem={({item, index}) => {
             return <RenderItemCart item={item} index={index} />;
           }}
           ItemSeparatorComponent={() => {
             return <View style={{margin: 10}} />;
+          }}
+          ListEmptyComponent={() => {
+            return (
+              <View>
+                <Text>Empty</Text>
+              </View>
+            );
           }}
           style={styles.myCartFlatList}
         />
@@ -44,7 +47,7 @@ const MyCartScreen = (props: InputProp) => {
       <View style={styles.orderSummarySection}>
         <View style={styles.subTotalContainer}>
           <Text style={styles.subTotalText}>Subtotal</Text>
-          <Text style={styles.subTotalAmountText}>$37.97</Text>
+          <Text style={styles.subTotalAmountText}>${total}</Text>
         </View>
 
         <View style={styles.subTotalContainer}>
@@ -56,13 +59,13 @@ const MyCartScreen = (props: InputProp) => {
 
         <View style={styles.totalContainer}>
           <Text style={styles.totalAmountText}>Total:</Text>
-          <Text style={styles.totalAmountText}>$37.97</Text>
+          <Text style={styles.totalAmountText}>${total}</Text>
         </View>
 
         <View style={styles.placeOrderButton}>
           <CustomButton
             text="Place Your Order"
-            onPress={()=> navigation.navigate("Checkout")}
+            onPress={() => navigation.navigate('Checkout')}
           />
         </View>
       </View>

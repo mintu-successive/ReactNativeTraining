@@ -1,7 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {CustomDrawer} from '../components';
-import Main from '../view/MainScreen';
+import TabNavigator from './TabNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -15,7 +15,7 @@ const DrawerNavigator = () => {
         overlayColor: 'none',
       }}
       drawerContent={props => <CustomDrawer {...props} />}>
-      <Drawer.Screen name="Tab" component={Main} />
+      <Drawer.Screen name="Tab" component={TabNavigator} />
     </Drawer.Navigator>
   );
 };

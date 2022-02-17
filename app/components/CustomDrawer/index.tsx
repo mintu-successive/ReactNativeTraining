@@ -1,21 +1,83 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList, TouchableOpacity, View} from 'react-native';
-import {
-  DrawerContentScrollView,
-  DrawerItemList,
-} from '@react-navigation/drawer';
-import styles from './style';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {Image, Text} from 'react-native-animatable';
-import {constants, dummyData, icons, images} from '../../config/Constants';
+import {dummyData, icons, images} from '../../config/Constants';
 import RenderItem from './RenderItem';
+import styles from './style';
+import {ImagePickerModal} from '..';
+import {useSelector, useDispatch} from 'react-redux';
+import {setProfilePic} from '../../redux/actions';
 
 const CustomDrawer = (props: any) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const profileUri = useSelector(state => state.setProfilePic);
+  const dispatch = useDispatch();
+
+  async function chooseImageFromCamera() {
+    const result = await launchCamera(
+      {
+        mediaType: 'photo',
+        quality: 1,
+      },
+      () => {},
+    );
+
+    if (result.didCancel) {
+      console.log('User cancelled image picker');
+    } else if (result.errorMessage) {
+      console.log('ImagePicker Error: ', result.errorMessage);
+    } else {
+      const source = {uri: result?.assets[0]?.uri};
+      dispatch(setProfilePic(source.uri));
+      setIsVisible(!isVisible);
+    }
+  }
+
+  async function chooseImageFromGallery() {
+    const result = await launchImageLibrary(
+      {
+        mediaType: 'photo',
+        quality: 1,
+      },
+      () => {},
+    );
+
+    if (result.didCancel) {
+      console.log('User cancelled image picker');
+    } else if (result.errorMessage) {
+      console.log('ImagePicker Error: ', result?.errorMessage);
+    } else {
+      const source = {uri: result?.assets[0]?.uri};
+      dispatch(setProfilePic(source.uri));
+      setIsVisible(!isVisible);
+    }
+  }
+
+  useEffect(() => {}, [isVisible]);
+
   return (
     <View style={styles.container}>
       <View>
-        <Image style={styles.closeIcon} source={icons.cross} />
+        <TouchableOpacity>
+          <Image style={styles.closeIcon} source={icons.cross} />
+        </TouchableOpacity>
         <View style={styles.profileContainer}>
-          <Image style={styles.profileIcon} source={images.profile} />
+          <TouchableOpacity
+            onPress={() => {
+              setIsVisible(!isVisible);
+            }}>
+            <Image
+              style={styles.profileIcon}
+              source={profileUri != '' ? {uri: profileUri} : images.profile}
+            />
+          </TouchableOpacity>
+          <ImagePickerModal
+            visible={isVisible}
+            onCameraClick={() => chooseImageFromCamera()}
+            onGalleryClick={() => chooseImageFromGallery()}
+            onClose={() => setIsVisible(!isVisible)}
+          />
           <View style={styles.textContainer}>
             <Text style={styles.profileNameText}>
               {dummyData.myProfile.name}
@@ -30,7 +92,13 @@ const CustomDrawer = (props: any) => {
           extraData={dummyData.drawer_data}
           keyExtractor={(_, i) => i.toString()}
           renderItem={({item, index}) => {
-            return <RenderItem item={item} index={index} navigation={props.navigation} />;
+            return (
+              <RenderItem
+                item={item}
+                index={index}
+                navigation={props.navigation}
+              />
+            );
           }}
         />
       </View>

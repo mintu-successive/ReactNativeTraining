@@ -244,7 +244,7 @@ const sizes = [
 const myCart = [
   {
     ...hamburger,
-    qty: 1,
+    qty: 4,
   },
   {
     ...hotTacos,
@@ -253,7 +253,7 @@ const myCart = [
   {
     ...vegBiryani,
     qty: 1,
-  },
+  }
 ];
 
 const myCards = [

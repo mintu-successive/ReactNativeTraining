@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {COLORS} from '../../config/Constants';
 import {HomeModel, NotificationTabModel} from '../../viewModel';
 import styles from './style';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {KeyboardAvoidingView, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import * as Animatable from 'react-native-animatable';
 
@@ -118,28 +118,30 @@ const TabButton = (props: any) => {
   );
 };
 
-const Main = () => {
+const TabNavigator = () => {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: styles.tabContainer,
-      }}>
-      {bottom_tabs.map((item, index) => {
-        return (
-          <Tab.Screen
-            key={index}
-            name={item.route}
-            component={item.component}
-            options={{
-              tabBarLabel: item.label,
-              tabBarButton: props => <TabButton {...props} item={item} />,
-            }}
-          />
-        );
-      })}
-    </Tab.Navigator>
+    // <KeyboardAvoidingView style={styles.tabContainer}>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: styles.tabContainer,
+        }}>
+        {bottom_tabs.map((item, index) => {
+          return (
+            <Tab.Screen
+              key={index}
+              name={item.route}
+              component={item.component}
+              options={{
+                tabBarLabel: item.label,
+                tabBarButton: props => <TabButton {...props} item={item} />,
+              }}
+            />
+          );
+        })}
+      </Tab.Navigator>
+    // </KeyboardAvoidingView>
   );
 };
 
-export default Main;
+export default TabNavigator;

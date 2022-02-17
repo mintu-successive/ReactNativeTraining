@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { COLORS, FONTS } from '../../config/Constants';
+import {COLORS, FONTS} from '../../config/Constants';
 
 const styles = StyleSheet.create({
   tabContainer: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
   },
-  tabViewContainer:{
+  tabViewContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 8,
@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  bottomLabelText:{
-      ...FONTS.body4,
-      color: COLORS.white,
-      paddingHorizontal: 8
-  }
+  bottomLabelText: {
+    ...FONTS.body4,
+    color: COLORS.white,
+    paddingHorizontal: 8,
+  },
 });
 
 export default styles;

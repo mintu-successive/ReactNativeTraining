@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
   rightHeaderButton: {
     backgroundColor: COLORS.lightOrange2,
   },
+  itemParentContainer:{
+    backgroundColor: COLORS.primary,
+    borderRadius: 10
+  },
   renderItemButtonContainer: {
     backgroundColor: COLORS.lightGray2,
     padding: 10,
@@ -112,6 +116,20 @@ const styles = StyleSheet.create({
     color: COLORS.black,
     fontWeight: '800',
   },
+  renderRightContainer:{
+    backgroundColor: COLORS.primary,
+    borderTopEndRadius: 10,
+    borderBottomEndRadius: 10,
+    width: SIZES.width*0.15,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  renderRightImage: {
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+    tintColor: COLORS.white
+  }
 });
 
 export default styles;

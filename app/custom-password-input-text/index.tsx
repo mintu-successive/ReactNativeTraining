@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {Image, TextInput, TouchableOpacity, View} from 'react-native';
+import {Image, TextInput, TouchableWithoutFeedback, View} from 'react-native';
 import styles from './style';
 
 const MGPasswordInputText = ({
-  onChangeText,
+  onChangeText ,
   value,
   placeHolder,
   style,
@@ -19,7 +19,7 @@ const MGPasswordInputText = ({
         secureTextEntry={visible}
         placeholderTextColor="gray"
       />
-      <TouchableOpacity
+      <TouchableWithoutFeedback
         onPress={() => {
           setVisible(!visible);
         }}
@@ -32,7 +32,7 @@ const MGPasswordInputText = ({
               : require('./icons/eye_close.png')
           }
         />
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     </View>
   );
 };
