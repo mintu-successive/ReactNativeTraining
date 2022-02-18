@@ -18,7 +18,7 @@ const RenderRight = () => {
 
 const RenderItemCart = ({item, index}: any) => {
   const [price, setPrice] = useState(item.price);
-  const list = useSelector(state => state.setMyCartList.list);
+  const list = useSelector((state: any) => state.setMyCartList.list);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(list[index].qty);
 
@@ -28,20 +28,26 @@ const RenderItemCart = ({item, index}: any) => {
     setQuantity(quantity + 1);
     let newItem = {...item, qty: quantity};
     dispatch(setMyCartList('UPDATE', index, newItem));
-    console.log('increase', newItem);
+    // console.log('increase', newItem);
   };
 
   const decrease = () => {
     setQuantity(quantity - 1);
     let newItem = {...item, qty: quantity};
     dispatch(setMyCartList('UPDATE', index, newItem));
-    console.log('decrease', newItem);
+    // console.log('decrease', newItem);
+  };
+
+  const deleteItem = () => {
+    dispatch(setMyCartList('REMOVE', index, item));
+    // console.log('Item Deleted: ', item);
   };
 
   return (
     <View style={styles.itemParentContainer}>
       <Swipeable
         overshootRight={false}
+        onSwipeableRightOpen={() => deleteItem()}
         renderRightActions={() => <RenderRight />}>
         <View style={styles.renderItemButtonContainer}>
           <View style={styles.subContainer}>

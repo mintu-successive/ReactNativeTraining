@@ -3,10 +3,10 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { COLORS, icons } from "../../config/Constants";
 import styles from "./style";
 
-const RenderItemMain = ({item, onClickedPopularItem}: any) => {
+const RenderItemMain = ({item,index, onClickedPopularItem}: any) => {
   return (
     <TouchableOpacity
-      onPress={() => onClickedPopularItem(item)}
+      onPress={() => onClickedPopularItem(item,index)}
       style={styles.renderMainContainer}>
       <View style={styles.caloriesContainer}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>

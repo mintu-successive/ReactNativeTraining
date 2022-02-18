@@ -15,7 +15,7 @@ interface InputProp {
   filterModalVisible: Boolean;
   onFilterPress: (item: any) => void;
   clickedItem: (item: any) => void;
-  onClickedPopularItem: (item: any) => void;
+  onClickedPopularItem: (item: any, index: number) => void;
 }
 
 const HomeScreen = (props: InputProp) => {
@@ -39,8 +39,12 @@ const HomeScreen = (props: InputProp) => {
         leftIcon={icons.menu}
         rightIcon={images.profile}
         rightButtonStyle={styles.rightHeaderButton}
-        leftOnPress={() => {}}
-        rightOnPress={() => {}}
+        leftOnPress={() => {
+          navigation.openDrawer();
+        }}
+        rightOnPress={() => {
+          navigation.navigate("MyAccount")
+        }}
       />
 
       <SearchBar
@@ -126,10 +130,11 @@ const HomeScreen = (props: InputProp) => {
             data={popularList}
             extraData={popularList}
             keyExtractor={(_, i) => i.toString()}
-            renderItem={({item}) => {
+            renderItem={({item, index}) => {
               return (
                 <RenderItemMain
                   item={item}
+                  index={index}
                   onClickedPopularItem={onClickedPopularItem}
                 />
               );

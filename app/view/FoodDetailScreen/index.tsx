@@ -15,10 +15,21 @@ interface InputProp {
   item: any;
   selectedSize: Number;
   onSizePress: (size: Number) => void;
+  quantity: number;
+  setQuantity: (value: number) => void;
+  buyNow: () => void;
 }
 
 const FoodDetailScreen = (props: InputProp) => {
-  const {navigation, item, selectedSize, onSizePress} = props;
+  const {
+    navigation,
+    item,
+    selectedSize,
+    onSizePress,
+    quantity,
+    setQuantity,
+    buyNow,
+  } = props;
 
   const renderItemSizes = ({item, index}: any) => (
     <TouchableOpacity
@@ -98,7 +109,9 @@ const FoodDetailScreen = (props: InputProp) => {
         leftOnPress={() => {
           navigation.goBack(null);
         }}
-        rightOnPress={() => { navigation.navigate("MyCart")}}
+        rightOnPress={() => {
+          navigation.navigate('MyCart');
+        }}
         isCart
       />
 
@@ -194,16 +207,18 @@ const FoodDetailScreen = (props: InputProp) => {
       <View style={styles.footerSection}>
         <View style={styles.footerSubContainer}>
           <View style={styles.quantityButtonContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => setQuantity(quantity - 1)}>
               <Image style={styles.quantityImage} source={icons.minus} />
             </TouchableOpacity>
-            <Text style={styles.quantityText}>1</Text>
-            <TouchableOpacity>
+            <Text style={styles.quantityText}>{quantity}</Text>
+            <TouchableOpacity onPress={() => setQuantity(quantity + 1)}>
               <Image style={styles.quantityImage} source={icons.plus} />
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity style={styles.buyNowButton}>
+          <TouchableOpacity
+            onPress={() => buyNow()}
+            style={styles.buyNowButton}>
             <View style={styles.buyNowButtonTextContainer}>
               <Text style={styles.buyNowText}>Buy Now</Text>
               <Text style={styles.priceText}>${item.price}</Text>

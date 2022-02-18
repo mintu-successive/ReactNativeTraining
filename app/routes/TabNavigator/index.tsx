@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {COLORS} from '../../config/Constants';
-import {HomeModel, NotificationTabModel} from '../../viewModel';
+import {HomeModel, MyCartModel, NotificationTabModel, ProfileModel, ReviewModel} from '../../viewModel';
 import styles from './style';
 import {KeyboardAvoidingView, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -16,6 +16,30 @@ const bottom_tabs = [
     activeIcon: 'home',
     inActiveIcon: 'home-outline',
     component: HomeModel,
+    color: COLORS.primary,
+  },
+  {
+    route: 'Search',
+    label: 'Search',
+    activeIcon: 'search',
+    inActiveIcon: 'search-outline',
+    component: ProfileModel,
+    color: COLORS.primary,
+  },
+  {
+    route: 'MyCart',
+    label: 'MyCart',
+    activeIcon: 'cart',
+    inActiveIcon: 'cart-outline',
+    component: MyCartModel,
+    color: COLORS.primary,
+  },
+  {
+    route: 'Favourite',
+    label: 'Favourite',
+    activeIcon: 'heart',
+    inActiveIcon: 'heart',
+    component: ReviewModel,
     color: COLORS.primary,
   },
   {

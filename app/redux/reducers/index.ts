@@ -3,8 +3,8 @@ import setProfilePic from './profileImage';
 import setMyCartList from './MyCartList';
 
 const RootReducer = combineReducers({
-    setProfilePic,
-    setMyCartList
+  setProfilePic: setProfilePic,
+  setMyCartList: setMyCartList,
 });
 
 export default RootReducer;

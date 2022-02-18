@@ -10,6 +10,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {setProfilePic} from '../../redux/actions';
 
 const CustomDrawer = (props: any) => {
+  const {navigation} = props;
   const [isVisible, setIsVisible] = useState(false);
   const profileUri = useSelector(state => state.setProfilePic);
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const CustomDrawer = (props: any) => {
   return (
     <View style={styles.container}>
       <View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.closeDrawer()}>
           <Image style={styles.closeIcon} source={icons.cross} />
         </TouchableOpacity>
         <View style={styles.profileContainer}>
