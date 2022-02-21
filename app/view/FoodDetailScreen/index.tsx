@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, ListViewBase, Text, View} from 'react-native';
 import {
   FlatList,
   ScrollView,
@@ -18,6 +18,7 @@ interface InputProp {
   quantity: number;
   setQuantity: (value: number) => void;
   buyNow: () => void;
+  list: any;
 }
 
 const FoodDetailScreen = (props: InputProp) => {
@@ -29,6 +30,7 @@ const FoodDetailScreen = (props: InputProp) => {
     quantity,
     setQuantity,
     buyNow,
+    list,
   } = props;
 
   const renderItemSizes = ({item, index}: any) => (
@@ -110,9 +112,10 @@ const FoodDetailScreen = (props: InputProp) => {
           navigation.goBack(null);
         }}
         rightOnPress={() => {
-          navigation.navigate('MyCart');
+          navigation.replace('MyCart');
         }}
         isCart
+        itemNumber={list.length}
       />
 
       <ScrollView

@@ -19,6 +19,7 @@ const Header = ({
   leftOnPress,
   rightOnPress,
   isCart,
+  itemNumber
 }: any) => {
   return (
     <View style={[style, styles.container]}>
@@ -41,7 +42,7 @@ const Header = ({
               <Image style={styles.rightIconImage} source={rightIcon} />
               {isCart != null && (
                 <Text style={styles.cartItemNumberText}>
-                  {dummyData.myCards.length}
+                  {itemNumber}
                 </Text>
               )}
             </TouchableOpacity>

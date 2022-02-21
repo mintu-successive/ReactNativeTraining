@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {Swipeable} from 'react-native-gesture-handler';
-import {COLORS, icons} from '../../config/Constants';
-import styles from './style';
+import {icons} from '../../config/Constants';
 import {useSelector, useDispatch} from 'react-redux';
 import {setMyCartList} from '../../redux/actions';
+import styles from './style';
 
 const RenderRight = () => {
   return (
@@ -21,31 +21,41 @@ const RenderItemCart = ({item, index}: any) => {
   const list = useSelector((state: any) => state.setMyCartList.list);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(list[index].qty);
+  const swipeableRef = useRef<any>(null);
 
   useEffect(() => {}, [quantity]);
 
   const increase = () => {
     setQuantity(quantity + 1);
-    let newItem = {...item, qty: quantity};
+    let q = {qty: quantity + 1};
+    let newItem = {...item, ...q};
     dispatch(setMyCartList('UPDATE', index, newItem));
-    // console.log('increase', newItem);
   };
 
   const decrease = () => {
+    if (quantity - 1 == 0) {
+      dispatch(setMyCartList('REMOVE', index, item));
+      return;
+    }
     setQuantity(quantity - 1);
-    let newItem = {...item, qty: quantity};
+    let q = {qty: quantity - 1};
+    let newItem = {...item, ...q};
     dispatch(setMyCartList('UPDATE', index, newItem));
-    // console.log('decrease', newItem);
   };
 
   const deleteItem = () => {
     dispatch(setMyCartList('REMOVE', index, item));
-    // console.log('Item Deleted: ', item);
+    closeSwipeable();
+  };
+
+  const closeSwipeable = () => {
+    index == list.length - 1 ? swipeableRef.current.close() : null;
   };
 
   return (
     <View style={styles.itemParentContainer}>
       <Swipeable
+        ref={swipeableRef}
         overshootRight={false}
         onSwipeableRightOpen={() => deleteItem()}
         renderRightActions={() => <RenderRight />}>

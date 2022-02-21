@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import FoodDetailScreen from '../view/FoodDetailScreen';
 import {dummyData} from '../config/Constants';
 import {useSelector, useDispatch} from 'react-redux';
@@ -8,20 +8,36 @@ import {useFocusEffect} from '@react-navigation/native';
 
 const FoodDetailModel = ({route, navigation}: any) => {
   const {item, index} = route.params;
+  const list = useSelector((state: any) => state.setMyCartList.list);
   const [selectedSize, setSelectedSize] = useState(1);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
   const [newItem, setNewItem] = useState(item);
   const dispatch = useDispatch();
-  const list = useSelector((state: any) => state.setMyCartList.list);
 
   const buyNow = () => {
-    let newData = {qty: quantity};
-    let i = {...newItem, ...newData};
-    dispatch(setMyCartList('ADD', index, i));
-    setQuantity(1);
-    setNewItem(item);
-    navigation.navigate('MyCart');
+    if (list.find((item: MyCartData) => item.id == newItem.id)) {
+      let newData = {qty: quantity};
+      let finalItem = {...newItem, ...newData};
+      dispatch(setMyCartList('UPDATE', index, finalItem));
+      setNewItem(finalItem);
+      navigation.replace('MyCart');
+    } else {
+      let newData = {qty: quantity};
+      let finalItem = {...newItem, ...newData};
+      dispatch(setMyCartList('ADD', index, finalItem));
+      setNewItem(finalItem);
+      navigation.replace('MyCart');
+    }
   };
+
+  useEffect(() => {
+    if (list.length > 0) {
+      let obj = list.find((item: MyCartData) => item.id == newItem.id);
+      if (obj) {
+        setQuantity(obj.qty);
+      }
+    }
+  }, [list]);
 
   return (
     <FoodDetailScreen
@@ -32,6 +48,7 @@ const FoodDetailModel = ({route, navigation}: any) => {
       quantity={quantity}
       setQuantity={(value: number) => setQuantity(value)}
       buyNow={() => buyNow()}
+      list={list}
     />
   );
 };

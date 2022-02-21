@@ -21,6 +21,7 @@ const MyCartScreen = (props: any) => {
           rightOnPress={() => {}}
           rightButtonStyle={styles.rightHeaderButton}
           isCart
+          itemNumber={data.length}
         />
 
         <FlatList
