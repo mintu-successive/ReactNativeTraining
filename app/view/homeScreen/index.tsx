@@ -16,6 +16,7 @@ interface InputProp {
   onFilterPress: (item: any) => void;
   clickedItem: (item: any) => void;
   onClickedPopularItem: (item: any, index: number) => void;
+  setSearchTxt: (value: string) => void
 }
 
 const HomeScreen = (props: InputProp) => {
@@ -27,6 +28,7 @@ const HomeScreen = (props: InputProp) => {
     onFilterPress,
     filterModalVisible,
     onClickedPopularItem,
+    setSearchTxt
   } = props;
 
   return (
@@ -50,6 +52,7 @@ const HomeScreen = (props: InputProp) => {
       <SearchBar
         style={styles.search}
         onFilterPress={() => onFilterPress(!filterModalVisible)}
+        onChangeText={(value: string)=> setSearchTxt(value)}
       />
 
       <Text style={styles.deliveryText}>DELIVERY TO</Text>

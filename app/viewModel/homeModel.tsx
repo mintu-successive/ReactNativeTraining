@@ -12,10 +12,30 @@ const HomeModel = (props: InputProp) => {
   const [index, setIndex] = useState();
   const [popularList, setPopularList] = useState([{}]);
   const [filterModalVisible, setFilterModalVisible] = useState(false);
+  const [searchTxt, setSearchTxt] = useState('');
 
   useEffect(() => {
     setPopularList(dummyData.menu[2].list);
-  }, []);
+    updateSearch();
+  }, [searchTxt]);
+
+  const updateSearch = () => {
+    if (popularList) {
+      if (searchTxt == '') {
+      } else {
+        let searchList = popularList
+          .filter((item: any) => {
+            // console.log(item.name);
+            return item.name.toLowerCase().includes(searchTxt.toLowerCase());
+          })
+          .map(item => {
+            console.log(item.name.toLowerCase());
+            return item;
+          });
+        setPopularList(searchList);
+      }
+    }
+  };
 
   const filterLists = () => {
     // setTimeout(() => {
@@ -43,12 +63,13 @@ const HomeModel = (props: InputProp) => {
       onClickedPopularItem={(item: any, index: number) => {
         navigation.navigate('FoodDetail', {
           item: item,
-          index: index
+          index: index,
         });
       }}
       onFilterPress={(item: any) => {
         setFilterModalVisible(item);
       }}
+      setSearchTxt={(value: string) => setSearchTxt(value)}
     />
   );
 };
