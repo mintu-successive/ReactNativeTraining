@@ -1,18 +1,28 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import HomeScreen from '../view/homeScreen';
-import {dummyData} from '../config/Constants';
+import {constants, dummyData} from '../config/Constants';
+import {FilterModal} from '../components';
+import FilterContextProvider from '../context/FilterContext';
 interface InputProp {
   navigation: any;
 }
 
 const HomeModel = (props: InputProp) => {
   const {navigation} = props;
-  const [selectedCategory, setSelectedCategory] = useState(1);
+  const selectedCategory = useRef<any | null>(1);
   const [item, setItem] = useState();
   const [index, setIndex] = useState();
   const [popularList, setPopularList] = useState([{}]);
   const [filterModalVisible, setFilterModalVisible] = useState(false);
-  const [searchTxt, setSearchTxt] = useState('');
+  const searchTxt = useRef<any | null>('');
+  const distanceStart = useRef<number | null>(3);
+  const distanceEnd = useRef<number | null>(10);
+  const pricingStart = useRef<number | null>(10);
+  const pricingEnd = useRef<number | null>(50);
+  const [deliveryTime, setDeliveryTime] = useState(
+    constants.delivery_time[0].id,
+  );
+  const [rating, setRating] = useState(0);
 
   useEffect(() => {
     setPopularList(dummyData.menu[2].list);
@@ -21,15 +31,16 @@ const HomeModel = (props: InputProp) => {
 
   const updateSearch = () => {
     if (popularList) {
-      if (searchTxt == '') {
+      if (searchTxt.current == '') {
+        setPopularList(dummyData.menu[2].list);
       } else {
         let searchList = popularList
           .filter((item: any) => {
-            // console.log(item.name);
-            return item.name.toLowerCase().includes(searchTxt.toLowerCase());
+            return item.name
+              .toLowerCase()
+              .includes(searchTxt.current.toLowerCase());
           })
           .map(item => {
-            console.log(item.name.toLowerCase());
             return item;
           });
         setPopularList(searchList);
@@ -38,39 +49,43 @@ const HomeModel = (props: InputProp) => {
   };
 
   const filterLists = () => {
-    // setTimeout(() => {
-    //     let data = dummyData.menu[2].list
-    //     let filtered = data.filter((item) => {
-    //         return item.categories == selectedCategory
-    //     }
-    //     ).map((item) => item);
-    //     console.log(filtered);
-    //     setPopularList(filtered)
-    // }, 500);
+    let data = dummyData.menu[2].list;
+    let filtered = data
+      .filter(item => {
+        return item.categories == selectedCategory.current;
+      })
+      .map(item => {
+        return item;
+      });
+    setPopularList(filtered);
   };
 
   return (
-    <HomeScreen
-      navigation={navigation}
-      selectedCategory={selectedCategory}
-      popularList={popularList}
-      filterModalVisible={filterModalVisible}
-      clickedItem={(item: any) => {
-        setItem(item);
-        setSelectedCategory(item.id);
-        filterLists();
-      }}
-      onClickedPopularItem={(item: any, index: number) => {
-        navigation.navigate('FoodDetail', {
-          item: item,
-          index: index,
-        });
-      }}
-      onFilterPress={(item: any) => {
-        setFilterModalVisible(item);
-      }}
-      setSearchTxt={(value: string) => setSearchTxt(value)}
-    />
+    <FilterContextProvider>
+      <HomeScreen
+        navigation={navigation}
+        selectedCategory={selectedCategory.current}
+        popularList={popularList}
+        clickedItem={(item: any) => {
+          setItem(item);
+          selectedCategory.current = item.id;
+          filterLists();
+        }}
+        onClickedPopularItem={(item: any, index: number) => {
+          navigation.navigate('FoodDetail', {
+            item: item,
+            index: index,
+          });
+        }}
+        onFilterPress={(item: any) => {
+          setFilterModalVisible(item);
+        }}
+        setSearchTxt={(value: string) => {
+          searchTxt.current = value;
+          updateSearch();
+        }}
+      />
+    </FilterContextProvider>
   );
 };
 

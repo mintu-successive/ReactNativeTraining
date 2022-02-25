@@ -53,13 +53,14 @@ const hamburger = {
   name: 'Hamburger',
   description: 'Chicken patty hamburger',
   categories: 1,
-  price: 15.99,
+  price: 15,
   calories: 78,
   isFavourite: true,
   image: require('../../assets/dummyData/hamburger.png'),
-  rating: 4.5,
-  delivery_time: '30 Mins',
+  rating: 3,
+  delivery_time: '20 Mins',
   shipping: 'Free shipping',
+  distance: 5,
 };
 
 const hotTacos = {
@@ -67,28 +68,30 @@ const hotTacos = {
   name: 'Hot Tacos',
   description: 'Mexican tortilla & tacos',
   categories: 2,
-  price: 10.99,
+  price: 10,
   calories: 79,
   isFavourite: false,
   image: require('../../assets/dummyData/hot_tacos.png'),
-  rating: 4.5,
-  delivery_time: '30 Mins',
+  rating: 2,
+  delivery_time: '10 Mins',
   shipping: 'Free shipping',
+  distance: 5,
 };
 
 const vegBiryani = {
   id: 3,
   name: 'Veg Biryani',
   description:
-    'A popular spice and vegetables mixed favoured rice dish which is typically prepared by layering the biryani gravy and basmati rice in flat bottom vessel.',
+    'A popular rice ',
   categories: 3,
-  price: 10.99,
+  price: 18,
   calories: 78,
   isFavourite: true,
   image: require('../../assets/dummyData/veg_biryani.png'),
-  rating: 4.5,
+  rating: 4,
   delivery_time: '30 Mins',
   shipping: 'Free shipping',
+  distance: 5,
 };
 
 const wrapSandwich = {
@@ -96,13 +99,14 @@ const wrapSandwich = {
   name: 'Wrap Sandwich',
   description: 'Grilled vegetables sandwich',
   categories: 1,
-  price: 10.99,
+  price: 60,
   calories: 78,
   isFavourite: true,
   image: require('../../assets/dummyData/wrap_sandwich.png'),
-  rating: 4.5,
+  rating: 4,
   delivery_time: '30 Mins',
   shipping: 'Free shipping',
+  distance: 5,
 };
 
 const pizzaHut = {
@@ -203,7 +207,7 @@ const menu = [
   {
     id: 3,
     name: 'Popular',
-    list: [hamburger, hotTacos, wrapSandwich],
+    list: [hamburger, hotTacos, wrapSandwich, vegBiryani],
   },
   {
     id: 4,

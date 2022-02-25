@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {COLORS, SIZES} from '../../config/Constants';
+import {COLORS, FONTS, SIZES} from '../../config/Constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -42,6 +42,35 @@ const styles = StyleSheet.create({
     padding: 5,
     alignItems: 'center',
     width: SIZES.width * 0.45,
+  },
+  renderFilterContainer: {
+    backgroundColor: COLORS.lightGray2,
+    borderRadius: 10,
+    padding: 5,
+    alignItems: 'center',
+    width: "100%",
+  },
+  filterFlatList:{
+    marginVertical: 10,
+  },
+  clearFilterButton:{
+    backgroundColor: COLORS.primary,
+    borderRadius: 20,
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginTop: 10
+  },
+  clearFilterText:{
+    ...FONTS.body2,
+    color: COLORS.white
+  },
+  clearFilterImage:{
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+    tintColor: COLORS.white
   },
   caloriesContainer: {
     flexDirection: 'row',

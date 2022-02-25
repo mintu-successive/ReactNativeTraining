@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   Dimensions,
   Image,
@@ -13,19 +13,39 @@ import {CustomButton} from '..';
 import {COLORS, icons, constants} from '../../config/Constants';
 import styles from './style';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
+import {FilterContext} from '../../context/FilterContext';
 
-const FilterModal = ({visible, onClose}: any) => {
+const FilterModal = () => {
+  const {
+    filterModalVisible,
+    setVisible,
+    distanceStart,
+    distanceEnd,
+    pricingStart,
+    pricingEnd,
+    deliveryTime,
+    rating,
+    setDelivery,
+    setRatingFunc,
+    setPrice,
+    setDistance,
+    onFilter,
+  } = useContext(FilterContext);
   return (
-    <Modal animationType="slide" transparent={true} visible={visible}>
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={filterModalVisible}>
       <View style={styles.main}>
-        <TouchableWithoutFeedback onPress={() => onClose()}>
+        <TouchableWithoutFeedback
+          onPress={() => setVisible(!filterModalVisible)}>
           <View style={styles.empty}></View>
         </TouchableWithoutFeedback>
 
         <View style={styles.parent}>
           <View style={styles.headerContainer}>
             <Text style={styles.headerText}>Filter Your Search</Text>
-            <TouchableOpacity onPress={() => onClose()}>
+            <TouchableOpacity onPress={() => setVisible(!filterModalVisible)}>
               <Image style={styles.headerImage} source={icons.cross} />
             </TouchableOpacity>
           </View>
@@ -35,16 +55,16 @@ const FilterModal = ({visible, onClose}: any) => {
           </View>
 
           <MultiSlider
-            values={[3, 10]}
+            values={[distanceStart.current, distanceEnd.current]}
             sliderLength={Dimensions.get('window').width - 40}
-            // onValuesChange={nonCollidingMultiSliderValuesChange}
+            onValuesChange={values => setDistance(values[0], values[1])}
             min={0}
             max={20}
             step={1}
             allowOverlap={false}
             snapped
             minMarkerOverlapDistance={40}
-            customMarker={() => {
+            customMarker={({currentValue}) => {
               return (
                 <View style={styles.markerContainer}>
                   <View style={styles.circleMarker} />
@@ -54,7 +74,7 @@ const FilterModal = ({visible, onClose}: any) => {
                       color: COLORS.gray,
                       fontWeight: '800',
                     }}>
-                    3 Km
+                    {currentValue} Km
                   </Text>
                 </View>
               );
@@ -83,9 +103,22 @@ const FilterModal = ({visible, onClose}: any) => {
               keyExtractor={(_, i) => i.toString()}
               renderItem={({item, index}) => {
                 return (
-                  <View style={styles.deliveryItemContainer}>
-                    <Text style={styles.deliveryItemText}>{item.label}</Text>
-                  </View>
+                  <TouchableOpacity
+                    onPress={() => setDelivery(index + 1)}
+                    style={
+                      deliveryTime == index + 1
+                        ? styles.selectedDeliveryItemContainer
+                        : styles.deliveryItemContainer
+                    }>
+                    <Text
+                      style={
+                        deliveryTime == index + 1
+                          ? styles.selectedDeliveryItemText
+                          : styles.deliveryItemText
+                      }>
+                      {item.label}
+                    </Text>
+                  </TouchableOpacity>
                 );
               }}
               horizontal
@@ -104,16 +137,16 @@ const FilterModal = ({visible, onClose}: any) => {
           </View>
 
           <MultiSlider
-            values={[10, 50]}
+            values={[pricingStart.current, pricingEnd.current]}
             sliderLength={Dimensions.get('window').width - 40}
-            // onValuesChange={nonCollidingMultiSliderValuesChange}
+            onValuesChange={values => setPrice(values[0], values[1])}
             min={0}
             max={100}
             step={1}
             allowOverlap={false}
             snapped
             minMarkerOverlapDistance={40}
-            customMarker={() => {
+            customMarker={({currentValue}) => {
               return (
                 <View
                   style={{
@@ -127,7 +160,7 @@ const FilterModal = ({visible, onClose}: any) => {
                       color: COLORS.gray,
                       fontWeight: '800',
                     }}>
-                    $10
+                    ${currentValue}
                   </Text>
                 </View>
               );
@@ -156,10 +189,30 @@ const FilterModal = ({visible, onClose}: any) => {
               keyExtractor={(_, i) => i.toString()}
               renderItem={({item, index}) => {
                 return (
-                  <View style={styles.ratingItemContainer}>
-                    <Text style={styles.ratingItemText}>{item.label}</Text>
-                    <Image style={styles.ratingImage} source={icons.star} />
-                  </View>
+                  <TouchableOpacity
+                    onPress={() => setRatingFunc(index)}
+                    style={
+                      rating >= index
+                        ? styles.selectedRatingItemContainer
+                        : styles.ratingItemContainer
+                    }>
+                    <Text
+                      style={
+                        rating >= index
+                          ? styles.selectedRatingItemText
+                          : styles.ratingItemText
+                      }>
+                      {item.label}
+                    </Text>
+                    <Image
+                      style={
+                        rating >= index
+                          ? styles.selectedRatingImage
+                          : styles.ratingImage
+                      }
+                      source={icons.star}
+                    />
+                  </TouchableOpacity>
                 );
               }}
               horizontal
@@ -174,7 +227,13 @@ const FilterModal = ({visible, onClose}: any) => {
           </View>
 
           <View style={styles.applyButton}>
-            <CustomButton text="Apply Filters" />
+            <CustomButton
+              text="Apply Filters"
+              onPress={() => {
+                onFilter();
+                setVisible(!filterModalVisible);
+              }}
+            />
           </View>
         </View>
       </View>
