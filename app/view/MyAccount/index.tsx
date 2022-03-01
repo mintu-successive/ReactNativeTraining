@@ -12,7 +12,13 @@ const MyAccountScreen = (props: InputProp) => {
   const {navigation} = props;
   return (
     <View style={styles.container}>
-      <Header title="MY ACCOUNT" leftIcon={icons.back} leftOnPress={() => {}} />
+      <Header
+        title="MY ACCOUNT"
+        leftIcon={icons.back}
+        leftOnPress={() => {
+          navigation.goBack(null);
+        }}
+      />
       <View style={styles.subContainerOne}>
         <View style={styles.textContainer}>
           <Text style={styles.labelText}>Full Name</Text>

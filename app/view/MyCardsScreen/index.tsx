@@ -15,7 +15,13 @@ const MyCardsScreen = (props: InputProp) => {
   const {navigation, selectedCard} = props;
   return (
     <View style={styles.container}>
-      <Header title="MY CARDS" leftIcon={icons.back} leftOnPress={() => {}} />
+      <Header
+        title="MY CARDS"
+        leftIcon={icons.back}
+        leftOnPress={() => {
+          navigation.goBack(null);
+        }}
+      />
 
       <View style={{flex: 0.3}}>
         <FlatList
@@ -60,10 +66,13 @@ const MyCardsScreen = (props: InputProp) => {
         />
       </View>
 
-      <View style={{flex:0.1, justifyContent:'center'}}>
-        <CustomButton 
-        text={"Add"}
-        onPress={()=>{ navigation.navigate("AddNewCard")}}/>
+      <View style={{flex: 0.1, justifyContent: 'center'}}>
+        <CustomButton
+          text={'Add'}
+          onPress={() => {
+            navigation.navigate('AddNewCard');
+          }}
+        />
       </View>
     </View>
   );

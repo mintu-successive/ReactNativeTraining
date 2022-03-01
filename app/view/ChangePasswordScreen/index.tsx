@@ -15,7 +15,9 @@ const ChangePasswordScreen = (props: InputProp) => {
       <Header
         title="CHANGE PASSWORD"
         leftIcon={icons.back}
-        leftOnPress={() => {}}
+        leftOnPress={() => {
+          navigation.goBack(null);
+        }}
       />
 
       <View style={styles.subContainer}>

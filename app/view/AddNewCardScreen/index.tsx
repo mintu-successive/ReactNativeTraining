@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  Image,
-  ImageBackground,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import {ScrollView, TextInput} from 'react-native-gesture-handler';
+import {Image, ImageBackground, Text, View} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 import {CustomButton, CustomTextInput, Header} from '../../components';
 import {
   icons,
@@ -25,9 +19,13 @@ const AddNewCardScreen = (props: InputProp) => {
   const {navigation} = props;
   return (
     <View style={styles.container}>
-      <Header title="ADD NEW CARD"
-      leftONpress={()=> navigation.goBack(null)}
-       leftIcon={icons.back} />
+      <Header
+        title="ADD NEW CARD"
+        leftOnPress={() => {
+          navigation.goBack(null);
+        }}
+        leftIcon={icons.back}
+      />
       <View style={{flex: 0.9}}>
         <ImageBackground style={styles.imageBackground} source={images.card}>
           <Image style={styles.cardImage} source={dummyData.allCards[0].icon} />
@@ -88,7 +86,12 @@ const AddNewCardScreen = (props: InputProp) => {
         </ScrollView>
       </View>
       <View style={{flex: 0.1, justifyContent: 'flex-end', marginBottom: 10}}>
-        <CustomButton text="Add Card" onPress={() => { navigation.navigate("PaymentSuccess")}} />
+        <CustomButton
+          text="Add Card"
+          onPress={() => {
+            navigation.navigate('PaymentSuccess');
+          }}
+        />
       </View>
     </View>
   );

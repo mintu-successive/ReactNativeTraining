@@ -67,7 +67,9 @@ const DeliveryStatusScreen = (props: InputProp) => {
         <CustomButton
           style={styles.customButton}
           text="DONE"
-          onPress={() => {navigation.navigate("Home")}}
+          onPress={() => {
+            navigation.navigate('Home');
+          }}
         />
       </View>
     </View>

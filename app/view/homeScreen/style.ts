@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   categoriesText: {
+    ...FONTS.body3,
     fontWeight: '800',
   },
   renderMainContainer: {
@@ -41,36 +42,36 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 5,
     alignItems: 'center',
-    width: SIZES.width * 0.45,
+    width: SIZES.width * 0.5,
   },
   renderFilterContainer: {
     backgroundColor: COLORS.lightGray2,
     borderRadius: 10,
     padding: 5,
     alignItems: 'center',
-    width: "100%",
+    width: '100%',
   },
-  filterFlatList:{
+  filterFlatList: {
     marginVertical: 10,
   },
-  clearFilterButton:{
+  clearFilterButton: {
     backgroundColor: COLORS.primary,
     borderRadius: 20,
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    marginTop: 10
+    marginTop: 10,
   },
-  clearFilterText:{
+  clearFilterText: {
     ...FONTS.body2,
-    color: COLORS.white
+    color: COLORS.white,
   },
-  clearFilterImage:{
+  clearFilterImage: {
     width: 30,
     height: 30,
     resizeMode: 'contain',
-    tintColor: COLORS.white
+    tintColor: COLORS.white,
   },
   caloriesContainer: {
     flexDirection: 'row',
@@ -97,19 +98,16 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   renderMainNameText: {
-    fontSize: 18,
+    ...FONTS.h3,
     color: 'black',
-    fontWeight: '800',
   },
   renderMainDescText: {
-    fontSize: 12,
+    ...FONTS.body5,
     color: COLORS.gray,
-    fontWeight: '500',
   },
   renderMainPriceText: {
-    fontSize: 20,
+    ...FONTS.h2,
     color: 'black',
-    fontWeight: '800',
     marginTop: 10,
   },
   dropDownButton: {

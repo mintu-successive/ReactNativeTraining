@@ -21,7 +21,9 @@ const MyOrdersScreen = (props: InputProp) => {
         leftIcon={icons.back}
         rightIcon={images.profile}
         rightButtonStyle={styles.rightHeaderButton}
-        leftOnPress={() => {}}
+        leftOnPress={() => {
+          navigation.goBack(null);
+        }}
         rightOnPress={() => {}}
       />
 

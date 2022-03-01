@@ -2,9 +2,15 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {CustomButton, Header} from '../../components';
-import {icons, dummyData} from '../../config/Constants';
+import {icons, dummyData, constants} from '../../config/Constants';
 import RenderItemCart from './RenderItemCart';
 import styles from './style';
+
+const Empty = () => {
+  return <View style={styles.emptyViewContainer}>
+  <Text style={styles.emptyText}>{constants.common.EMPTY_TEXT}</Text>
+</View>
+}
 
 const MyCartScreen = (props: any) => {
   const {navigation, data, total, setData} = props;
@@ -36,9 +42,7 @@ const MyCartScreen = (props: any) => {
           }}
           ListEmptyComponent={() => {
             return (
-              <View>
-                <Text>Empty</Text>
-              </View>
+              <Empty/>
             );
           }}
           style={styles.myCartFlatList}

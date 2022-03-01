@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     iconContainer:{
-        width: SIZES.width*0.2,
-        height: SIZES.height*0.1,
+        width: SIZES.width*0.18,
+        height: SIZES.height*0.09,
         backgroundColor: COLORS.primary,
         alignItems: 'center',
         justifyContent: 'center',
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     },
     option:{
         width: 8,
-        height: 28,
+        height: 20,
         resizeMode: 'cover',
         margin: 5
     },

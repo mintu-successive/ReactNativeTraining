@@ -36,7 +36,9 @@ const ReviewScreen = (props: InputProp) => {
       <Header
         title="RIDER REVIEW"
         leftIcon={icons.back}
-        leftOnPress={() => {}}
+        leftOnPress={() => {
+          navigation.goBack(null);
+        }}
       />
       <View style={styles.riderDetailsContainer}>
         <Image style={styles.riderProfileImage} source={images.profile} />

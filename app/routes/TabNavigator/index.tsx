@@ -23,7 +23,7 @@ const bottom_tabs = [
     label: 'Search',
     activeIcon: 'search',
     inActiveIcon: 'search-outline',
-    component: ProfileModel,
+    component: HomeModel,
     color: COLORS.primary,
   },
   {
@@ -31,7 +31,7 @@ const bottom_tabs = [
     label: 'MyCart',
     activeIcon: 'cart',
     inActiveIcon: 'cart-outline',
-    component: MyCartModel,
+    component: HomeModel,
     color: COLORS.primary,
   },
   {
@@ -39,7 +39,7 @@ const bottom_tabs = [
     label: 'Favourite',
     activeIcon: 'heart',
     inActiveIcon: 'heart',
-    component: ReviewModel,
+    component: HomeModel,
     color: COLORS.primary,
   },
   {

@@ -1,10 +1,10 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import {FlatList} from 'react-native-gesture-handler';
 import {Header} from '../../components';
 import {dummyData, icons, images} from '../../config/Constants';
 import styles from './style';
-import RenderItem from './RenderItem'
+import RenderItem from './RenderItem';
 
 interface InputProp {
   navigation: any;
@@ -21,7 +21,9 @@ const MyCouponScreen = (props: InputProp) => {
         leftIcon={icons.back}
         rightIcon={images.profile}
         rightButtonStyle={styles.rightHeaderButton}
-        leftOnPress={() => {}}
+        leftOnPress={() => {
+          navigation.goBack(null);
+        }}
         rightOnPress={() => {}}
       />
 
@@ -54,12 +56,16 @@ const MyCouponScreen = (props: InputProp) => {
       </View>
 
       <FlatList
-      style={styles.flatList}
-      data={isAvailable? dummyData.available_coupons : dummyData.used_coupons}
-      extraData={isAvailable? dummyData.available_coupons : dummyData.used_coupons}
-      keyExtractor={(_,i)=>i.toString()}
-      renderItem={({item,index})=> <RenderItem item={item}/>}
-      ItemSeparatorComponent={()=><View style={{margin:5}}/>}
+        style={styles.flatList}
+        data={
+          isAvailable ? dummyData.available_coupons : dummyData.used_coupons
+        }
+        extraData={
+          isAvailable ? dummyData.available_coupons : dummyData.used_coupons
+        }
+        keyExtractor={(_, i) => i.toString()}
+        renderItem={({item, index}) => <RenderItem item={item} />}
+        ItemSeparatorComponent={() => <View style={{margin: 5}} />}
       />
     </View>
   );

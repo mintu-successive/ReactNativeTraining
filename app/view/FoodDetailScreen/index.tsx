@@ -1,14 +1,14 @@
-import React, {useEffect} from 'react';
-import {Image, ListViewBase, Text, View} from 'react-native';
+import React from 'react';
+import {Image, Text, View} from 'react-native';
 import {
   FlatList,
   ScrollView,
   TouchableOpacity,
 } from 'react-native-gesture-handler';
-import {Header, TitleText} from '../../components';
+import {Header} from '../../components';
 import {COLORS} from '../../config/Constants';
 import styles from './style';
-import {icons, constants, dummyData, images} from '../../config/Constants';
+import {icons, dummyData} from '../../config/Constants';
 
 interface InputProp {
   navigation: any;

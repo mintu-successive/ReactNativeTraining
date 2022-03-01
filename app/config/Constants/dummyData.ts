@@ -406,7 +406,7 @@ const drawer_data = [
   },
   {
     label : 'Coupons',
-    route : 'Coupons',
+    route : 'MyCoupon',
     icon : icons.coupon
   },
   {

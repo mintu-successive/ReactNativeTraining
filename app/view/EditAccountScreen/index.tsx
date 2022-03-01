@@ -16,7 +16,9 @@ const EditAccountScreen = (props: InputProp) => {
       <Header
         title="EDIT ACCOUNT"
         leftIcon={icons.back}
-        leftOnPress={() => {}}
+        leftOnPress={() => {
+          navigation.goBack(null);
+        }}
       />
 
       <ScrollView showsVerticalScrollIndicator={false}>

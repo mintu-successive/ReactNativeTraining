@@ -61,7 +61,7 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Drawer"
+        initialRouteName="OnBoarding"
         screenOptions={{
           headerShown: false,
         }}>

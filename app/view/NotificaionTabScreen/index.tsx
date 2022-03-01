@@ -1,9 +1,9 @@
 import React from 'react';
 import {SectionList, Text, TouchableOpacity, View} from 'react-native';
-import { dummyData, icons, images } from '../../config/Constants';
+import {dummyData, icons, images} from '../../config/Constants';
 import styles from './style';
-import RenderItem from './RenderItem'
-import { Header } from '../../components';
+import RenderItem from './RenderItem';
+import {Header} from '../../components';
 
 interface InputProp {
   navigation: any;
@@ -13,14 +13,18 @@ const NotificationTabScreen = (props: InputProp) => {
   const {navigation} = props;
   return (
     <View style={styles.container}>
-        <Header
+      <Header
         title="NOTIFICATIONS"
-        leftIcon={icons.back}
-        leftOnPress={()=>{}}
+        leftIcon={icons.menu}
+        leftOnPress={() => {
+          navigation.openDrawer();
+        }}
+        rightOnPress={() => {
+          navigation.navigate('MyAccount');
+        }}
         rightIcon={images.profile}
-        rightOnPress={()=>{}}
         rightButtonStyle={styles.rightButton}
-        />
+      />
       <SectionList
         sections={dummyData.notification_list}
         keyExtractor={(_, index) => index.toString()}

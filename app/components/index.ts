@@ -4,7 +4,7 @@ import CustomButton from './CustomButton';
 import HeaderLogo from './HeaderLogo';
 import CustomTextInput from './CustomInputText';
 import LabelText from './LabelText';
-import Header from './Header';
+import Header from './HeaderComponent/Header';
 import SearchBar from './SearchBar';
 import FilterModal from './FilterModal';
 import PasswordInputText from './PasswordInputText';

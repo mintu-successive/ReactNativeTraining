@@ -7,7 +7,7 @@ const defaultValues = {
   distanceEnd: 0,
   pricingStart: 0,
   distanceStart: 0,
-  isFilter: true,
+  isFilter: false,
   filterModalVisible: false,
   filterList: dummyData.menu[2].list,
   deliveryTime: constants.delivery_time[0].id,
@@ -33,7 +33,7 @@ const FilterContextProvider = (props: any) => {
   const distanceEnd = useRef<number>(10);
   const pricingStart = useRef<number>(10);
   const pricingEnd = useRef<number>(50);
-  const [isFilter, setIsFilter] = useState(true);
+  const [isFilter, setIsFilter] = useState(false);
   const [filterList, setFilterList] = useState(dummyData.menu[2].list);
   let isDeliverySelected = false;
   let isRatingSelected = false;

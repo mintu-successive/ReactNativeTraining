@@ -19,7 +19,9 @@ const CheckoutScreen = (props: InputProp) => {
             <Header
               title="CHECKOUT"
               leftIcon={icons.back}
-              leftOnPress={() => {}}
+              leftOnPress={() => {
+                navigation.goBack(null);
+              }}
             />
 
             <View style={{flex: 2}}>

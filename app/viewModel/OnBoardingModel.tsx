@@ -22,7 +22,7 @@ const OnBoardingModel = (props: InputProp) => {
     }
 
     const goToHomeScreen = () => {
-        navigation.navigate("Home")
+        navigation.replace("Login")
         AsyncStorage.setItem(AsyncConstants.isFirstLaunch,"false")
     }
 

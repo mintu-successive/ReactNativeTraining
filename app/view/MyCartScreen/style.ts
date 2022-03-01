@@ -10,9 +10,9 @@ const styles = StyleSheet.create({
   rightHeaderButton: {
     backgroundColor: COLORS.lightOrange2,
   },
-  itemParentContainer:{
+  itemParentContainer: {
     backgroundColor: COLORS.primary,
-    borderRadius: 10
+    borderRadius: 10,
   },
   renderItemButtonContainer: {
     backgroundColor: COLORS.lightGray2,
@@ -116,19 +116,27 @@ const styles = StyleSheet.create({
     color: COLORS.black,
     fontWeight: '800',
   },
-  renderRightContainer:{
+  renderRightContainer: {
     backgroundColor: COLORS.primary,
     borderTopEndRadius: 10,
     borderBottomEndRadius: 10,
-    width: SIZES.width*0.15,
+    width: SIZES.width * 0.15,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   renderRightImage: {
     width: 30,
     height: 30,
     resizeMode: 'contain',
-    tintColor: COLORS.white
+    tintColor: COLORS.white,
+  },
+  emptyViewContainer:{
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptyText:{
+    ...FONTS.h2,
+    color: COLORS.primary
   }
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {Header} from '../../components';
 import {constants, icons} from '../../config/Constants';
@@ -15,8 +15,13 @@ const SettingsScreen = (props: InputProp) => {
 
   return (
     <View style={styles.container}>
-      <Header title="SETTINGS" leftIcon={icons.back}
-      leftOnPress={()=>{}} />
+      <Header
+        title="SETTINGS"
+        leftIcon={icons.back}
+        leftOnPress={() => {
+          navigation.goBack(null);
+        }}
+      />
 
       <View style={styles.flatListContainer}>
         <FlatList
@@ -24,7 +29,9 @@ const SettingsScreen = (props: InputProp) => {
           extraData={constants.settings}
           keyExtractor={(_, i) => i.toString()}
           renderItem={({item, index}) => {
-            return <RenderItem item={item} index={index} navigation={navigation}/>;
+            return (
+              <RenderItem item={item} index={index} navigation={navigation} />
+            );
           }}
           showsVerticalScrollIndicator={false}
         />

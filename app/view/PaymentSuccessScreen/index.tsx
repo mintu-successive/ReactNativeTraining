@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import {CustomButton} from '../../components';
 import {images} from '../../config/Constants';
 import styles from './style';
@@ -18,13 +18,13 @@ const PaymentSuccessScreen = (props: InputProp) => {
         <Text style={styles.messageText}>Payment was successfully made!</Text>
       </View>
       <View style={styles.customButtonContainer}>
-      <CustomButton
-      style={styles.customButton}
-        onPress={() => {
-          navigation.navigate('Home');
-        }}
-        text="Done"
-      />
+        <CustomButton
+          style={styles.customButton}
+          onPress={() => {
+            navigation.navigate('Drawer');
+          }}
+          text="Done"
+        />
       </View>
     </View>
   );

@@ -15,7 +15,9 @@ const NotificationScreen = (props: InputProp) => {
       <Header
         title="NOTIFICATION"
         leftIcon={icons.back}
-        leftOnPress={() => {}}
+        leftOnPress={() => {
+          navigation.goBack(null);
+        }}
       />
 
       {dummyData.notification.map((item, index) => {
