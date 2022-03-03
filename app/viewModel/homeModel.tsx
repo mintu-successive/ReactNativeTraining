@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from "react";
-import HomeScreen from "../view/homeScreen/homeScreen";
-import { FetchHomeData } from '../controllers'
+import React, {useEffect, useState} from 'react';
+import HomeScreen from '../view/homeScreen';
+import {FetchHomeData} from '../controllers';
 
 interface InputProp {
-    navigation: any
+  navigation: any;
 }
 
 const HomeModel = (props: InputProp) => {
-    const { navigation } = props
-    const [data, setData] = useState([])
-    const getHomeData =async () => {
-         let res = await FetchHomeData()
-         setData(res)
-         console.log(res)
-    }
-    useEffect(()=>{
-        getHomeData()
-    },[])
-    return (<HomeScreen navigation={navigation} data={data} />)
-}
+  const {navigation} = props;
 
-export default HomeModel
+  useEffect(() => {}, []);
+  return <HomeScreen navigation={navigation}/>;
+};
+
+export default HomeModel;
