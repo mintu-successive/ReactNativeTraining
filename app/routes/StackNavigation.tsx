@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import LoginModel from '../viewModel/LoginModel';
@@ -25,7 +25,6 @@ import {
   ReviewModel,
   SettingsModel,
 } from '../viewModel';
-import TabNavigator from './TabNavigator';
 import DrawerNavigator from './Drawer';
 
 type RootStackList = {
@@ -61,7 +60,7 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="OnBoarding"
+        initialRouteName="Drawer"
         screenOptions={{
           headerShown: false,
         }}>

@@ -28,6 +28,7 @@ const CheckoutScreen = (props: InputProp) => {
               {dummyData.myCards.map((item, i) => {
                 return (
                   <TouchableOpacity
+                  key={i}
                     style={
                       i != 0
                         ? styles.myCardsContainer
