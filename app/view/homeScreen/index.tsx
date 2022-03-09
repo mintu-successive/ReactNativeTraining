@@ -1,6 +1,5 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
 import {CovidMessage, HomeMap, HomeSearch} from '../../components';
 import styles from './style';
 
@@ -12,9 +11,13 @@ const HomeScreen = (props: InputProp) => {
   const {navigation} = props;
   return (
     <View style={styles.container}>
-      <HomeMap />
-      <CovidMessage />
-      <HomeSearch />
+      <View style={styles.homeMapContainer}>
+        <HomeMap />
+      </View>
+      <View style={styles.searchContainer}>
+        <CovidMessage />
+        <HomeSearch />
+      </View>
     </View>
   );
 };

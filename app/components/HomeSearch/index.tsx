@@ -4,12 +4,13 @@ import styles from './style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { constants } from '../../config';
 
 const HomeSearch = () => {
   return (
     <View style={styles.container}>
       <View style={styles.inputBox}>
-        <Text style={styles.inputText}>Where To?</Text>
+        <Text style={styles.inputText}>{constants.WHERE_TO}</Text>
         <View style={styles.timeContainer}>
           <AntDesign name="clockcircle" size={16} color={'#535353'} />
           <Text>Now</Text>

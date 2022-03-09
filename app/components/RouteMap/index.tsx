@@ -6,7 +6,7 @@ import {cars, images} from '../../config';
 import {FlatList} from 'react-native-gesture-handler';
 import {getImageTop} from '../../common';
 
-const HomeMap = () => {
+const RouteMap = () => {
   return (
     <MapView
       style={styles.mapView}
@@ -28,4 +28,4 @@ const HomeMap = () => {
   );
 };
 
-export default HomeMap;
+export default RouteMap;

@@ -5,12 +5,14 @@ import {
   DestinationSearchViewModel,
   HomeModel,
   ProfileModel,
+  SearchResultsViewModel,
 } from '../viewModel';
 
 type RootStackList = {
   Home: Function;
   Profile: Function;
   DestinationSearch: Function;
+  SearchResults: Function;
 };
 
 const Stack = createStackNavigator<RootStackList>();
@@ -19,7 +21,7 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="DestinationSearch"
+        initialRouteName="SearchResults"
         screenOptions={{
           headerShown: false,
         }}>
@@ -29,6 +31,7 @@ const StackNavigator = () => {
           name="DestinationSearch"
           component={DestinationSearchViewModel}
         />
+        <Stack.Screen name="SearchResults" component={SearchResultsViewModel} />
       </Stack.Navigator>
     </NavigationContainer>
   );
